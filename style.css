@@ -1,0 +1,15 @@
+
+
+@media (min-width: 768px){
+
+}
+@media (min-width: 1280px){
+
+}
+@media (prefers-reduced-motion: reduce) {
+* { animation: none !important; transition: none !important; }
+}
+
+@media (prefers-color-scheme: dark) {
+:root { --color-bg: #0f172a; --color-text: #e2e8f0; }
+}
