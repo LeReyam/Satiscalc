@@ -2,8 +2,8 @@
 **Team:** Leon Mayer (312056), Nicholas Plötz (307930), Florian Dunstheimer (307133)
 **Repository:** https://github.com/LeReyam/Satiscalc
 ## Projektidee
-2–3 Sätze: Was ist eure App? Für wen ist sie gedacht?
 Ein Tool zur Generierung von einem Flowchart für Produktionsketten. Eigene Rezepte können hinzugefügt werden.
+Dient zur optimierung von diesen Produktionsketten.
 ## Kriterien-Zuordnung M1
 | Kriterium | Datei | Zeile / Hinweis |
 |---|---|---|
