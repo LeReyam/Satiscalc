@@ -3,7 +3,6 @@
 **Repository:** https://github.com/LeReyam/Satiscalc
 ## Projektidee
 Ein Tool zur Generierung von einem Flowchart für Produktionsketten. Eigene Rezepte können hinzugefügt werden.
-Dient zur optimierung von diesen Produktionsketten.
 ## Kriterien-Zuordnung M1
 | Kriterium | Datei | Zeile / Hinweis |
 |---|---|---|
