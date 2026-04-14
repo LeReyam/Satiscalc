@@ -1,5 +1,5 @@
 
-
+:root { --color-bg: #0f172a; --color-text: #e2e8f0; }
 @media (min-width: 768px){
 
 }
@@ -11,5 +11,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-:root { --color-bg: #0f172a; --color-text: #e2e8f0; }
+	:root { --color-bg: #0f172a; --color-text: #e2e8f0; }
 }
+body { background: var(--color-bg); color: var(--color-text);}
+
+

@@ -7,16 +7,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Productionplanner</h1>
-    <p>Einen Planner für Produktionsketten.</p>
-    <img src="flowchart.png" alt="flowchart" width="600">
-	<form>
-	  <label for="rezept">Wähle das Rezept:</label>
-	  <select name="rezept" id="rezept">
-		<option value="Alien DNA Capsule">Alien DNA Capsule</option>
-		<option value="Alumium Casing">Aluminium Casing</option>
-	  </select>
-	  <br><br>
-	</form>
+	<header id="start">
+		<h1>Productionplanner</h1>
+		<nav>
+			<a href="#start">Start</a>
+			<a href="#planner">Planner</a>
+			<a href="#ende">ERSTELLER und GIT</a>
+		</nav>
+		<br>
+	</header>
+	<main id="planner">
+		<section>
+			<form id="selection">
+				<label for="rezept">Wähle das Rezept:</label>
+				<select name="rezept" id="rezept">
+					<option value="Alien DNA Capsule">Alien DNA Capsule</option>
+					<option value="Alumium Casing">Aluminium Casing</option>
+				</select>
+				<br><br>
+				<label id="menge">Gebe die geqünschte anzahl ein</label>
+				<input type="number" value="1" min="1">/s
+			</form>
+		</section>
+		<p> <img src="flowchart.png" alt="flowchart" width="600"> </p>
+	</main>
+	<br><br>
+	<footer id="ende">
+			<ul>
+				<li>
+				Ersteller:
+				<ul>
+					<li>L.Mayer</li>
+					<li>N.Plötz</li>
+					<li>F.Dunstheimer</li>
+				</ul>
+				</li>
+				<li><a href="https://github.com/LeReyam/Satiscalc">Unser Repository</a></li>
+			</ul>
+	</footer>
+
 </body>
 </html>
