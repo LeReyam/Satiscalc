@@ -14,5 +14,15 @@
 	:root { --color-bg: #0f172a; --color-text: #e2e8f0; }
 }
 body { background: var(--color-bg); color: var(--color-text);}
-
-
+.start{
+	display: flex;
+}
+.planner{
+	display: flex;
+}
+.ende{
+	display: flex;
+}
+.selection{
+	display: flex;
+}
