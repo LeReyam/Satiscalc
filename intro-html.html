@@ -11,29 +11,14 @@
     <p>Einen Planner für Produktionsketten in einem Factory building game entwickeln.</p>
     <img src="flowchart.png" alt="flowchart" width="600">
     <script src="app.js"></script>
-    <table>
-        <thead>
-            <tr>
-        <th>Erzeugnis</th>
-        <th>#</th>
-        <th>Eingabe(n)</th>
-        <th>Produktsiongebäude</th>
-        <th>#</th>
-        <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1x Alien Protein</td>
-                <td>6s</td>
-                <td>Alien DNA Capsule</td>
-            </tr>
-            <tr>
-                <td>Aluminum Casing</td>
-                <td>1s</td>
-                <td>3x Aluminum </td>
-            </tr>
-            <tr></tr>
-        </tbody>
+	<form action="/action_page.php">
+	  <label for="rezept">Wähle das Rezept:</label>
+	  <select name="rezept" id="rezept">
+		<option value="Alien DNA Capsule">Alien DNA Capsule</option>
+		<option value="Alumium Casing">Aluminium Casing</option>
+	  </select>
+	  <br><br>
+	  <input type="submit" value="Submit">
+	</form>
 </body>
 </html>
