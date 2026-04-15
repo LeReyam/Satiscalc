@@ -15,6 +15,7 @@
 			<a href="#ende">ERSTELLER und GIT</a>
 		</nav>
 	</header>
+	<hr>
 	<main id="planner">
 		<section>
 			<form id="selection">
@@ -24,13 +25,18 @@
 					<option value="Alumium Casing">Aluminium Casing</option>
 				</select>
 				<br><br>
-				<label id="menge">Gebe die geqünschte anzahl ein</label>
-				<input type="number" value="1" min="1">/s
-				<a href="#image">Submit</a>
+				<label id="menge">Gebe die gewünschte Anzahl ein:</label>
+				<p><input type="number" value="1" min="1">/s</p>
+				<button type="submit">Berechnen</button>
 			</form>
 		</section>
-		<p> <img id="image" src="flowchart.png" alt="flowchart"> </p>
+		<section class="image-viewer">
+			<stage class="image-stage">
+				<img id="image" src="flowchart.png" alt="flowchart">
+			</stage>
+		</section>
 	</main>
+	<hr>
 	<footer id="ende">
 			<ul>
 				<li>
