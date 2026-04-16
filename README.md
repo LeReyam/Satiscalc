@@ -6,8 +6,8 @@ Ein Tool zur Generierung von einem Flowchart für Produktionsketten. Eigene Reze
 ## Kriterien-Zuordnung M1
 | Kriterium | Datei | Zeile / Hinweis |
 |---|---|---|
-| Semantische HTML-Struktur | index.html | Z. 10–45 |
-| Formular mit Labels | index.html | Z. 60–80 |
-| Responsives Layout (Flexbox/Grid) | styles.css | Z. 20–50 |
-| Media Query | styles.css | Z. 90 |
+| Semantische HTML-Struktur | index.html | Z. 9-54 |
+| Formular mit Labels | intro-html.html | Z. 21–31 |
+| Responsives Layout (Flexbox/Grid) | styles.css | Z. 22–61 |
+| Media Query | styles.css | Z. 149 |
 | URL-Struktur | index.html, about.html | Pfade: /, /about |
