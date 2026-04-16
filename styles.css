@@ -160,7 +160,7 @@ footer a:visited{
   }
 }
 select,
-input[type="text"],input[type="password"],input[type="number"]{
+input[type="email"],input[type="password"],input[type="number"]{
   min-width: auto;
   padding: 10px 12px;
   border-radius: 8px;
