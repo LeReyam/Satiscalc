@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productionplanner introduction</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<header id="start">
+<body>
+	<header id="start">
 		<h1>Productionplanner</h1>
 		<nav>
 			<a href="index.html#start">Start</a>
@@ -16,24 +16,24 @@
 			<a href="login.html">Login</a>
 		</nav>
 	</header>
-    <br>
-<main id="planner">
+	<hr>
+	<main id="planner">
 		<section>
 			<form id="selection">
-				<label for="mail">E-Mail</label>
-				<p><input type="text" placeholder="M.Mustermann@Muster.de"></p>
+				<label id="username" >Username:</label>
+				<p><input type="text" placeholder="M.Mustermann"></p>
+				<label id="E-Mail" >E-Mail:</label>
 				<p><input type="email" placeholder="M.Mustermann@Muster.de"></p>
-				</select>
-				<br><br>
-				<label id="Passwort:">Passwort</label>
-				<p><input type ="password" placeholder="Passwort"></p>
-				<button type="submit">LOGIN</button>
-                <a href="register.html">Sign-up</a>
+				<label id="password" >Passwort:</label>
+				<p><input type="password" placeholder="Passwort"></p>
+				<label id="password">Passwort wiederholen:</label>
+				<p><input type="password" placeholder="Passwort"></p>
+				<button type="register">Registrieren</button>
 			</form>
 		</section>
 	</main>
-    <hr>
-<footer id="ende">
+	<hr>
+	<footer id="ende">
 			<ul>
 				<li>
 				Ersteller:
@@ -47,7 +47,5 @@
 			</ul>
 	</footer>
 
-
-
-
+</body>
 </html>
