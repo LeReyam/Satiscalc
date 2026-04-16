@@ -16,7 +16,7 @@ body {
 header h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: white;
+  color: #fd9800;
 }
 
 header {
@@ -114,7 +114,7 @@ form#selection {
   -webkit-overflow-scrolling: touch;
   touch-action: pan-x pan-y pinch-zoom;
   scrollbar-width: thin;
-  scrollbar-color: #22c55e #0b1120;
+  scrollbar-color: #fd9800 #0b1120;
   scroll-padding: 3px;
 }
 
