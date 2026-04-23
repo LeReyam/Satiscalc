@@ -20,40 +20,48 @@
     <hr>
 <main id="planner">
 		<section>
-			<form id="selection">
-				<label>Name:</label>
-				<input type="text" placeholder="Mein Rezept">
-				Eingabe:
-				<p>
-				<select name="Ressource" id="Ressource">
-					<option value="Alien DNA Capsule">Alien DNA Capsule</option>
-					<option value="Alumium Casing">Aluminium Casing</option>
-				</select>
-					<input type="number" value="1" min="1" max="1000000" id="number">/s
-				</p>
-				<button>Eingabe hinzufügen</button>
-				Ausgabe:
-				<p>
-				<select name="Fabrik" id="Fabrik">
-					<option value="Alien DNA Capsule">Alien DNA Capsule</option>
-					<option value="Alumium Casing">Aluminium Casing</option>
-				</select>
-					<input type="number" value="1" min="1" max="1000000" id="number">/s
-				</p>
-				<button>Ausgabe hinzufügen</button>
-				Fabrik:
-				<p>
-				<select name="Fabrik" id="Fabrik">
-					<option value="Alien DNA Capsule">Alien DNA Capsule</option>
-					<option value="Alumium Casing">Aluminium Casing</option>
-				</select>
-					<input type="number" value="1" min="1" max="1000000" id="number">s
-				</p>
-				<button>Rezept erstellen</button>
+			<form>
+				<div class="new-recipe">
+  					<a href="rezepte-erstellen-bearbeiten.html" class="btn">Neues Rezept erstellen</a>
+				</div>
+				<div class="table-wrapper">
+					<table class="table-info">
+						<caption>Costum-Rezepte</caption>
+						<thead>
+							<th><input type="checkbox" class="checkbox" id="all"></th>
+							<th>Name</th>
+							<th></th>
+							<th></th>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="checkbox" name="Rezept" class="checkbox" id="check1"></td>
+								<td class="recipe-name">Mein Rezept</td>
+								<td><a href="rezepte-erstellen-bearbeiten.html" class="btn">Bearbeiten</a></td>
+								<td><button>Löschen</button></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="Rezept" class="checkbox" id="check1"></td>
+								<td class="recipe-name">Mein Rezept 2 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
+								<td><a href="rezepte-erstellen-bearbeiten.html" class="btn">Bearbeiten</a></td>
+								<td><button>Löschen</button></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="Rezept" class="checkbox" id="check1"></td>
+								<td class="recipe-name">Mein Rezept 3</td>
+								<td><a href="rezepte-erstellen-bearbeiten.html" class="btn">Bearbeiten</a></td>
+								<td><button>Löschen</button></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="Rezept" class="checkbox" id="check1"></td>
+								<td class="recipe-name">Mein Rezept 4 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
+								<td><a href="rezepte-erstellen-bearbeiten.html" class="btn">Bearbeiten</a></td>
+								<td><button>Löschen</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</form>
-		</section>
-		<section>
-			Liste von Custom-Rezepten mit <button>Bearbeiten</button><button>Löschen</button>
 		</section>
 	</main>
     <hr>
@@ -70,8 +78,4 @@
 				<li><a href="https://github.com/LeReyam/Satiscalc">Unser Repository</a></li>
 			</ul>
 	</footer>
-
-
-
-
 </html>

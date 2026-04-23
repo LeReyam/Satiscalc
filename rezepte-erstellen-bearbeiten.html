@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eigenes Rezept erstellen</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<header id="start">
+		<h1>Productionplanner</h1>
+		<nav>
+			<a href="index.html#start">Start</a>
+			<a href="index.html#planner">Planner</a>
+			<a href="custom-recipies.html">Custom-Rezept</a>
+			<a href="about.html">About</a>
+			<a href="login.html">Login</a>
+		</nav>
+	</header>
+    <hr>
+<main id="planner">
+		<section>
+			<form id="selection">
+				<label>Name:</label>
+				<input type="text" placeholder="Mein Rezept">
+				Eingabe:
+				<p>
+				<select name="Ressource" id="Ressource">
+					<option value="Alien DNA Capsule">Alien DNA Capsule</option>
+					<option value="Alumium Casing">Aluminium Casing</option>
+				</select>
+					<input type="number" value="1" min="1" max="1000000" id="number">/s
+				</p>
+				<button>Eingabe hinzufügen</button>
+				Ausgabe:
+				<p>
+				<select name="Fabrik" id="Fabrik">
+					<option value="Alien DNA Capsule">Alien DNA Capsule</option>
+					<option value="Alumium Casing">Aluminium Casing</option>
+				</select>
+					<input type="number" value="1" min="1" max="1000000" id="number">/s
+				</p>
+				<button>Ausgabe hinzufügen</button>
+				Fabrik:
+				<p>
+				<select name="Fabrik" id="Fabrik">
+					<option value="Alien DNA Capsule">Alien DNA Capsule</option>
+					<option value="Alumium Casing">Aluminium Casing</option>
+				</select>
+					<input type="number" value="1" min="1" max="1000000" id="number">s
+				</p>
+				<button>Rezept erstellen/speichern</button>
+			</form>
+			<a href="custom-recipies.html"><button>Zurück</button></a>
+		</section>
+	</main>
+    <hr>
+<footer id="ende">
+			<ul>
+				<li>
+				Ersteller:
+				<ul>
+					<li>L.Mayer</li>
+					<li>N.Plötz</li>
+					<li>F.Dunstheimer</li>
+				</ul>
+				</li>
+				<li><a href="https://github.com/LeReyam/Satiscalc">Unser Repository</a></li>
+			</ul>
+	</footer>
+</html>
