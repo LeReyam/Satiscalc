@@ -1,26 +1,3 @@
-@media (max-width: 801px) {
-  main {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-
-  form#selection {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .image-viewer {
-    width: 100%;
-    height: 60vh;
-  }
-
-  #image {
-    transform: none;
-    margin: 0;
-  }
-}
 :root {
   --color-bg: #615f5f;
   --color-card: #434547;
@@ -85,7 +62,12 @@ main {
 section {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+.reqi{
+  justify-content: left;
+  align-content: baseline;
 }
 
 p{
@@ -178,4 +160,29 @@ input {
 }
 #number{
   width: 80px;
+}
+
+
+@media (max-width: 801px) {
+  main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  form#selection {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .image-viewer {
+    width: 100%;
+    height: 60vh;
+  }
+
+  #image {
+    transform: none;
+    margin: 0;
+  }
 }
