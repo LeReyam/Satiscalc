@@ -65,9 +65,8 @@ section {
   flex-direction: column;
   align-items: center;
 }
-.reqi{
-  justify-content: left;
-  align-content: baseline;
+#reqi{
+  align-items: flex-start;
 }
 
 p{
