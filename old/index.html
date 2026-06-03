@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productionplanner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header id="start">
+		<h1>Productionplanner</h1>
+		<nav>
+			<a href="index.html#start">Start</a>
+			<a href="index.html#planner">Planner</a>
+			<a href="custom-recipies.html">Custom-Rezept</a>
+			<a href="about.html">About</a>
+			<a href="login.html">Login</a>
+		</nav>
+	</header>
+	<hr>
+	<main id="planner">
+		<section>
+			<form>
+				<label for="rezept">Wähle das Rezept:</label>
+				<select name="rezept" id="rezept">
+					<option value="Alien DNA Capsule">Alien DNA Capsule</option>
+					<option value="Alumium Casing">Aluminium Casing</option>
+				</select>
+				<br><br>
+				<label id="menge">Gebe die gewünschte Anzahl ein:</label>
+				<p><input type="number" value="1" min="1" max="1000000" id="number">/s</p>
+				<button type="submit">Berechnen</button>
+			</form>
+		</section>
+		<section class="image-viewer">
+			<stage class="image-stage">
+				<img id="image" src="flowchart.png" alt="flowchart">
+			</stage>
+		</section>
+		<section id="reqi">
+				Liste von Ressourcen:
+				<ul>
+					<li>20x Eisen</li>
+					<li>20x Kohle</li>
+				</ul>
+				Liste von Fabriken:
+				<ul>
+					<li>2x Bohrer MK. 1</li>
+					<li>1x Smelter</li>
+				</ul>
+		</section>
+	</main>
+	<hr>
+	<footer id="ende">
+			<ul>
+				<li>
+				Ersteller:
+				<ul>
+					<li>L.Mayer</li>
+					<li>N.Plötz</li>
+					<li>F.Dunstheimer</li>
+				</ul>
+				</li>
+				<li><a href="https://github.com/LeReyam/Satiscalc">Unser Repository</a></li>
+			</ul>
+	</footer>
+
+</body>
+</html>
