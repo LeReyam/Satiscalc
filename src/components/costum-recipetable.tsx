@@ -1,6 +1,6 @@
 export function Costum_recipetable(){
 	return(
-		<main id="planner">
+		<main title="planner">
 			<section>
 				<form>
 					<div title="new-recipe">
