@@ -1,0 +1,21 @@
+{
+  "name": "satiscalc",
+  "version": "1.0.0",
+  "description": "**Team:** Leon Mayer (312056), Nicholas Plötz (307930), Florian Dunstheimer (307133)\r **Repository:** https://github.com/LeReyam/Satiscalc\r ## Projektidee\r Ein Tool zur Generierung von einem Flowchart für Produktionsketten. Eigene Rezepte können hinzugefügt werden.\r ## Kriterien-Zuordnung M1\r | Kriterium | Datei | Zeile / Hinweis |\r |---|---|---|\r | Semantische HTML-Struktur | index.html | Z. 9-54 |\r | Formular mit Labels | intro-html.html | Z. 21–31 |\r | Responsives Layout (Flexbox/Grid) | styles.css | Z. 22–61 |\r | Media Query | styles.css | Z. 149 |\r | URL-Struktur | index.html, about.html | Pfade: /, /about |",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeReyam/Satiscalc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LeReyam/Satiscalc/issues"
+  },
+  "homepage": "https://github.com/LeReyam/Satiscalc#readme"
+}
