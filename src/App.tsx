@@ -17,11 +17,8 @@ function App() {
 		<About/>
 		<Costum_recipe_editor/>
 		<Costum_recipetable/>
-		<Recipe_selector/>
-    <About/>
-    <Costum_recipe_editor/>
-    <Costum_recipetable/>
     <Productionplanner_output/>
+		<Recipe_selector/>
 		<Footer />
     </>
   );
