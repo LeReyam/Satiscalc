@@ -1,10 +1,8 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import heroImg from "./assets/hero.png";
 import { Footer } from "./components/footer";
 import "./App.css";
-import {Header} from "./components/header.tsx"
+import { Header } from "./components/header"
+import { Register } from "./components/register"
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,7 +10,7 @@ function App() {
   return (
     <>
 		<Header/>
-      
+		<Register/>
 		<Footer />
     </>
   );
