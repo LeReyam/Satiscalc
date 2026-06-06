@@ -1,4 +1,4 @@
-export function Reset_passwort(){
+export function Password_reset(){
 	return (
 		<section>
 			<form id="selection">
