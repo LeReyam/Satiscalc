@@ -8,6 +8,7 @@ import "./App.css";
 import { Header } from "./components/header"
 import { Register } from "./components/register"
 import {Login } from "./components/login"
+import { Reset_passwort } from "./components/password-reset.tsx";
 
 function App() {
 
@@ -15,13 +16,14 @@ function App() {
     <>
 		<Header/>
 		<Login/>
+		<Reset_passwort/>
 		<Register/>
 		<About/>
 		<Costum_recipe_editor/>
 		<Costum_recipetable/>
     	<Productionplanner_output/>
 		<Recipe_selector/>
-		<Footer />
+		<Footer/>
     </>
   );
 }
