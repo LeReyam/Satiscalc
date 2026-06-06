@@ -2,7 +2,7 @@ export function Recipe_selector() {
   return (
   <section>
 		<form>
-			<label for="rezept">Wähle das Rezept:</label>
+			<label title="rezept">Wähle das Rezept:</label>
 			<select name="rezept" id="rezept">
 				<option value="Alien DNA Capsule">Alien DNA Capsule</option>
 				<option value="Alumium Casing">Aluminium Casing</option>

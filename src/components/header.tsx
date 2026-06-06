@@ -1,14 +1,29 @@
-export function Header() {
+type HeaderProps = {
+  setPage: (page: string) => void;
+};
+
+export function Header({ setPage }: HeaderProps) {
   return (
     <header id="start">
-		<h1>Productionplanner</h1>
-		<nav>
-			<a href="index.html#start">Start</a>
-			<a href="index.html#planner">Planner</a>
-			<a href="custom-recipies.html">Custom-Rezept</a>
-			<a href="about.html">About</a>
-			<a href="login.html">Login</a>
-		</nav>
-	</header>
+      <h1>Productionplanner</h1>
+
+      <nav>
+        <button onClick={() => setPage("planner")}>
+          Productionplanner
+        </button>
+
+        <button onClick={() => setPage("recipes")}>
+          Custom-Rezepte
+        </button>
+
+        <button onClick={() => setPage("about")}>
+          About
+        </button>
+
+        <button onClick={() => setPage("login")}>
+          Login
+        </button>
+      </nav>
+    </header>
   );
 }
