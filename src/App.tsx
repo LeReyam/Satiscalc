@@ -4,14 +4,11 @@ import "./App.css";
 
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
-
 import { Login } from "./components/login";
 import { Register } from "./components/register";
 import { About } from "./components/about";
-
 import { Costum_recipetable } from "./components/costum-recipetable";
 import { Costum_recipe_editor } from "./components/costum-recipe-editor";
-
 import { Recipe_selector } from "./components/recipeselector";
 import { Productionplanner_output } from "./components/productionplanner-output";
 import { Productionplanner_graph } from "./components/productionplanner-graph";
