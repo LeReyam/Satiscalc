@@ -16,7 +16,7 @@ import { Productionplanner_graph } from "./components/productionplanner-graph";
 
 function App() {
   const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes);
-  const [selectedRecipeId, setSelectedRecipeId] = useState(recipes[0].id);
+  const [selectedRecipeId, setSelectedRecipeId] = useState(recipes[0]?.id ?? "");
   const [amount, setAmount] = useState(1);
 
   const selectedRecipe = recipes.find( (recipe) => recipe.id === selectedRecipeId);

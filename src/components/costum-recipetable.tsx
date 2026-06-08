@@ -1,4 +1,6 @@
 import type { Recipe } from "../types";
+import { items } from "../data/items";
+import { factories } from "../data/factories";
 
 type CostumRecipetableProps =  {
   recipes: Recipe[];
@@ -13,6 +15,15 @@ export function Costum_recipetable({
   onEditRecipe,
   onDeleteRecipe,
 }: CostumRecipetableProps) {
+
+  function getItemName(itemId: string) {
+    return items.find((item) => item.id === itemId)?.name ?? itemId;
+  }
+
+  function getFactoryName(factoryId: string) {
+    return factories.find((factory) => factory.id === factoryId)?.name ?? factoryId;
+  }
+
   return (
     <main title="planner">
       <section>
@@ -26,7 +37,7 @@ export function Costum_recipetable({
 
             <thead>
               <tr>
-                <th>Name</th>
+                <th>Rezeptname</th>
                 <th>Eingabe</th>
                 <th>Ausgabe</th>
                 <th>Fabrik</th>
@@ -34,24 +45,32 @@ export function Costum_recipetable({
               </tr>
             </thead>
 
-            <tbody>
-              {recipes.map((recipe) =>
+           <tbody>
+            {recipes.length === 0 ? (
+              <tr>
+                <td colSpan={5}>
+                  Noch keine eigenen Rezepte vorhanden.
+                </td>
+              </tr>
+            ) : (
+              recipes.map((recipe) => (
                 <tr key={recipe.id}>
                   <td>{recipe.name}</td>
                   <td>
-                    {recipe.inputAmount}x {recipe.input}
+                    <p>{recipe.inputAmount}x {getItemName(recipe.input)}</p>
                   </td>
                   <td>
-                    {recipe.outputAmount}x {recipe.output}
+                    <p>{recipe.outputAmount}x {getItemName(recipe.output)}</p>
                   </td>
-                  <td>{recipe.machine}</td>
+                  <td>{getFactoryName(recipe.machine)}</td>
                   <td>
                     <button type="button" onClick={() => onEditRecipe(recipe.id)}>Bearbeiten</button>
                     <button type="button" onClick={() => onDeleteRecipe(recipe.id)}>Löschen</button>
                   </td>
                 </tr>
-              )}
-            </tbody>
+              ))
+            )}
+          </tbody>
           </table>
         </div>
       </section>

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import type { Recipe } from "../types";
+import { items } from "../data/items";
+import { factories } from "../data/factories";
 
 type CostumRecipeEditorProps = {
   recipe?: Recipe;
@@ -18,22 +20,49 @@ export function Costum_recipe_editor({
   const [output, setOutput] = useState(recipe?.output ?? "");
   const [outputAmount, setOutputAmount] = useState(recipe?.outputAmount ?? 1);
   const [machine, setMachine] = useState(recipe?.machine ?? "");
+  const [errors, setErrors] = useState({
+  input: false,
+  output: false,
+  machine: false,
+  });
+
+const [errorMessage,setErrorMessage] = useState("");
 
   function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
+
+  const newErrors = {
+  input: input === "",
+  output: output === "",
+  machine: machine === "",
+};
+
+  setErrors(newErrors);
+
+  if (
+    newErrors.input ||
+    newErrors.output ||
+    newErrors.machine
+  ) {
+    setErrorMessage(
+      "Bitte alle Pflichtfelder ausfüllen."
+    );
+    return;
   }
 
-  const savedRecipe: Recipe = {
-    id: recipe?.id ?? crypto.randomUUID(),
-    name,
-    input,
-    inputAmount,
-    output,
-    outputAmount,
-    machine,
-  }
-  onSave(savedRecipe)
+  setErrorMessage("");
 
+    const savedRecipe: Recipe = {
+      id: recipe?.id ?? crypto.randomUUID(),
+      name,
+      input,
+      inputAmount,
+      output,
+      outputAmount,
+      machine,
+    }
+    onSave(savedRecipe)
+  }
   return(
     <main className="costum_recipe_editor">
       <section>
@@ -49,12 +78,14 @@ export function Costum_recipe_editor({
           />
 
           <label>Eingabe:</label>
-          <input
-            type="text"
-            placeholder="z.B. Iron Ore"
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
-          />
+          <select className={errors.input ? "error-field" : ""} value={input} onChange={(e) => setInput(e.target.value)}>
+            <option value="">Eingabe wählen</option>
+            {items.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.name}
+              </option>
+            ))}
+          </select>
 
           <input
             type="number"
@@ -65,12 +96,14 @@ export function Costum_recipe_editor({
           />
 
            <label>Ausgabe:</label>
-          <input
-            type="text"
-            placeholder="z.B. Iron Ingot"
-            value={output}
-            onChange={(event) => setOutput(event.target.value)}
-          />
+          <select className={errors.output ? "error-field" : ""} value={output} onChange={(e) => setOutput(e.target.value)}>
+            <option value="">Ausgabe wählen</option>
+            {items.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.name}
+              </option>
+            ))}
+          </select>
 
           <input
             type="number"
@@ -81,13 +114,19 @@ export function Costum_recipe_editor({
           />
 
           <label>Fabrik:</label>
-          <input
-            type="text"
-            placeholder="z.B. Smelter"
-            value={machine}
-            onChange={(event) => setMachine(event.target.value)}
-          />
-
+          <select className={errors.machine ? "error-field" : ""} value={machine} onChange={(e) => setMachine(e.target.value)}>
+            <option value="">Fabrik wählen</option>
+            {factories.map((factory) => (
+              <option key={factory.id} value={factory.id}>
+                {factory.name}
+              </option>
+            ))}
+          </select>
+          {errorMessage && (
+            <p className="error-message">
+              {errorMessage}
+            </p>
+          )}
           <button type="submit">{recipe ? "Änderungen speichern" : "Rezept erstellen"}</button>
           <button type="button" onClick={onCancel}>Zurück</button>
 

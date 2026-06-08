@@ -17,3 +17,12 @@ export interface Recipe {
   machine: string;
 }
 
+export interface Item {
+  id: string;
+  name: string;
+}
+
+export interface Factory {
+  id: string;
+  name: string;
+}
