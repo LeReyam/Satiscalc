@@ -1,82 +1,59 @@
-export function Costum_recipetable() {
+import type { Recipe } from "../types";
+
+type CostumRecipetableProps =  {
+  recipes: Recipe[];
+  onCreateRecipe: () => void;
+  onEditRecipe: (id: string) => void;
+  onDeleteRecipe: (id: string) => void
+}
+
+export function Costum_recipetable({
+  recipes,
+  onCreateRecipe,
+  onEditRecipe,
+  onDeleteRecipe,
+}: CostumRecipetableProps) {
   return (
     <main title="planner">
       <section>
-        <form>
-          <div title="new-recipe">
-            <a href="rezepte-erstellen-bearbeiten.html" title="btn">
-              Neues Rezept erstellen
-            </a>
-          </div>
-          <div title="table-wrapper">
-            <table title="table-info">
-              <caption>Costum-Rezepte</caption>
-              <thead>
-                <th>
-                  <input type="checkbox" title="all" />
-                </th>
+        <button type="button" onClick={onCreateRecipe}>
+          Neues Rezept erstellen
+        </button>
+
+        <div className="table-wrapper">
+          <table className="table-info">
+            <caption>Costum-Rezepte</caption>
+
+            <thead>
+              <tr>
                 <th>Name</th>
-                <th></th>
-                <th></th>
-              </thead>
-              <tbody>
-                <tr>
+                <th>Eingabe</th>
+                <th>Ausgabe</th>
+                <th>Fabrik</th>
+                <th>Aktionen</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {recipes.map((recipe) =>
+                <tr key={recipe.id}>
+                  <td>{recipe.name}</td>
                   <td>
-                    <input type="checkbox" name="Rezept" title="check1" />
+                    {recipe.inputAmount}x {recipe.input}
                   </td>
-                  <td title="recipe-name">Mein Rezept</td>
                   <td>
-                    <a href="rezepte-erstellen-bearbeiten.html">Bearbeiten</a>
+                    {recipe.outputAmount}x {recipe.output}
                   </td>
+                  <td>{recipe.machine}</td>
                   <td>
-                    <button>Löschen</button>
+                    <button type="button" onClick={() => onEditRecipe(recipe.id)}>Bearbeiten</button>
+                    <button type="button" onClick={() => onDeleteRecipe(recipe.id)}>Löschen</button>
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="Rezept" title="check1" />
-                  </td>
-                  <td title="recipe-name">
-                    Mein Rezept 2
-                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                  </td>
-                  <td>
-                    <a href="rezepte-erstellen-bearbeiten.html">Bearbeiten</a>
-                  </td>
-                  <td>
-                    <button>Löschen</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="Rezept" title="check1" />
-                  </td>
-                  <td title="recipe-name">Mein Rezept 3</td>
-                  <td>
-                    <a href="rezepte-erstellen-bearbeiten.html">Bearbeiten</a>
-                  </td>
-                  <td>
-                    <button>Löschen</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="Rezept" title="check1" />
-                  </td>
-                  <td title="recipe-name">
-                    Mein Rezept 4 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                  </td>
-                  <td>
-                    <a href="rezepte-erstellen-bearbeiten.html">Bearbeiten</a>
-                  </td>
-                  <td>
-                    <button>Löschen</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </form>
+              )}
+            </tbody>
+          </table>
+        </div>
       </section>
     </main>
   );
