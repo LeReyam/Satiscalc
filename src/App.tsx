@@ -26,7 +26,7 @@ function App() {
       {page === "planner" && (
         <>
           <Recipe_selector />
-		  <Productionplanner_graph/>
+          <Productionplanner_graph />
           <Productionplanner_output />
         </>
       )}

@@ -7,7 +7,7 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   font-size: larger;
   background: linear-gradient(135deg, #0f172a, #020617);
   color: var(--color-text);
@@ -43,7 +43,6 @@ nav a {
   text-decoration: none;
   font-weight: 500;
   transition: 0.2s;
-
 }
 
 nav a:hover {
@@ -65,12 +64,12 @@ section {
   flex-direction: column;
   align-items: center;
 }
-#reqi{
+#reqi {
   align-items: flex-start;
 }
 
-p{
-	margin: 3px;
+p {
+  margin: 3px;
 }
 
 form {
@@ -82,11 +81,11 @@ form {
   padding: 25px;
   border-radius: 12px;
   border: 1px solid none;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   min-width: 280px;
 }
 
-h2{
+h2 {
   margin: 10px;
 }
 
@@ -116,18 +115,17 @@ h2{
   height: auto;
 }
 
-
 footer {
   display: flex;
   justify-content: center;
   padding: 20px;
 }
 
-a{
-  color:#45a1ec;
+a {
+  color: #45a1ec;
 }
 
-a:not(.btn):hover{
+a:not(.btn):hover {
   color: #b6813c;
 }
 
@@ -156,7 +154,7 @@ button:hover,
 .btn:hover {
   transform: scale(1.05);
 }
-a.btn:hover{
+a.btn:hover {
   color: none;
 }
 
@@ -170,12 +168,12 @@ input {
   color: #e2e8f0;
   font-size: 1rem;
 }
-.checkbox{
+.checkbox {
   width: auto;
   align-content: center;
 }
 
-#number{
+#number {
   width: 80px;
   text-align: center;
 }
@@ -191,7 +189,7 @@ table {
   border-top-right-radius: 0px;
 }
 
-caption{
+caption {
   font-weight: bold;
   font-size: larger;
   border: 3px solid #fd9800;
@@ -202,7 +200,7 @@ caption{
   border-bottom-right-radius: 0px;
 }
 
-th{
+th {
   text-align: center;
   background-color: #fd9800;
   color: #020617;
@@ -212,7 +210,7 @@ th{
   padding: 5px;
 }
 
-td{
+td {
   padding: 3px;
   text-align: center;
   border-radius: 3px;
@@ -226,12 +224,13 @@ th:nth-child(1) {
 
 td:nth-child(2) {
   max-width: 500px;
-  overflow:hidden;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: left;
 }
-.table-wrapper td:nth-child(3),td:nth-child(4){
+.table-wrapper td:nth-child(3),
+td:nth-child(4) {
   width: 30px;
 }
 
@@ -240,7 +239,6 @@ td:nth-child(2) {
   justify-content: center;
   margin: 10px 0;
 }
-
 
 @media (max-width: 801px) {
   main {
