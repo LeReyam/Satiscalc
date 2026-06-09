@@ -1,4 +1,5 @@
 import type { Recipe } from "../types";
+import { items } from "../data/items";
 
 
 type RecipeSelectorProps = {
@@ -16,6 +17,18 @@ export function Recipe_selector({
   onRecipeChange,
   onAmountChange,
 }: RecipeSelectorProps) {
+
+  function getRecipeDisplayName(recipe: Recipe) {
+    const firstProduct = recipe.products[0];
+
+    if (!firstProduct) {
+      return recipe.name;
+    }
+
+    return (
+      items.find((item) => item.id === firstProduct.item)?.name ?? recipe.name
+    );
+  }
   return (
     <section>
       <form>
@@ -27,9 +40,10 @@ export function Recipe_selector({
           value={selectedRecipeId}
           onChange={(event) => onRecipeChange(event.target.value)}
         >
+          <option value="">Rezept auswählen</option>
           {recipes.map((recipe) => (
             <option key={recipe.className} value={recipe.className}>
-              {recipe.name}
+              {getRecipeDisplayName(recipe)}
             </option>
           ))}
         </select>
@@ -45,7 +59,7 @@ export function Recipe_selector({
             id="number"
             onChange={(event) => onAmountChange(Number(event.target.value))}
           />
-          /s
+          /min
         </p>
       </form>
     </section>
