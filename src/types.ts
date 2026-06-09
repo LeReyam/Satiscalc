@@ -7,14 +7,9 @@ export interface User {
  active: boolean;
 }
 
-export interface Recipe {
+export interface Factory {
   id: string;
   name: string;
-  input: string;
-  inputAmount: number;
-  output: string;
-  outputAmount: number;
-  machine: string;
 }
 
 export interface Item {
@@ -22,7 +17,17 @@ export interface Item {
   name: string;
 }
 
-export interface Factory {
-  id: string;
+export interface RecipeItem {
+  item: string;
+  amount: number;
+}
+
+export interface Recipe {
+  className: string;
   name: string;
+  duration: number;
+  ingredients: RecipeItem[];
+  products: RecipeItem[];
+  producedIn: string[];
+  customRecipe: boolean;
 }

@@ -6,64 +6,80 @@ import { factories } from "../data/factories";
 type CostumRecipeEditorProps = {
   recipe?: Recipe;
   onSave: (recipe: Recipe) => void;
-  onCancel:() => void;
-}
+  onCancel: () => void;
+};
 
 export function Costum_recipe_editor({
   recipe,
   onSave,
   onCancel,
 }: CostumRecipeEditorProps) {
-  const [name, setName] = useState(recipe?.name ?? "")
-  const [input, setInput] = useState(recipe?.input ?? "");
-  const [inputAmount, setInputAmount] = useState(recipe?.inputAmount ?? 1);
-  const [output, setOutput] = useState(recipe?.output ?? "");
-  const [outputAmount, setOutputAmount] = useState(recipe?.outputAmount ?? 1);
-  const [machine, setMachine] = useState(recipe?.machine ?? "");
+  const [name, setName] = useState(recipe?.name ?? "");
+  const [input, setInput] = useState(recipe?.ingredients[0]?.item ?? "");
+  const [inputAmount, setInputAmount] = useState(
+    recipe?.ingredients[0]?.amount ?? 1
+  );
+  const [output, setOutput] = useState(recipe?.products[0]?.item ?? "");
+  const [outputAmount, setOutputAmount] = useState(
+    recipe?.products[0]?.amount ?? 1
+  );
+  const [machine, setMachine] = useState(recipe?.producedIn[0] ?? "");
+  const [duration, setDuration] = useState(recipe?.duration ?? 1);
+
   const [errors, setErrors] = useState({
-  input: false,
-  output: false,
-  machine: false,
+    input: false,
+    output: false,
+    machine: false,
   });
 
-const [errorMessage,setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
-  const newErrors = {
-  input: input === "",
-  output: output === "",
-  machine: machine === "",
-};
+    const newErrors = {
+      input: input === "",
+      output: output === "",
+      machine: machine === "",
+    };
 
-  setErrors(newErrors);
+    setErrors(newErrors);
 
-  if (
-    newErrors.input ||
-    newErrors.output ||
-    newErrors.machine
-  ) {
-    setErrorMessage(
-      "Bitte alle Pflichtfelder ausfüllen."
-    );
-    return;
-  }
+    if (newErrors.input || newErrors.output || newErrors.machine) {
+      setErrorMessage("Bitte alle Pflichtfelder ausfüllen.");
+      return;
+    }
 
-  setErrorMessage("");
+    setErrorMessage("");
+
+    const selectedOutputItem = items.find((item) => item.id === output);
+    const recipeName =
+      name.trim() || selectedOutputItem?.name || "Unbenanntes Rezept";
 
     const savedRecipe: Recipe = {
-      id: recipe?.id ?? crypto.randomUUID(),
-      name,
-      input,
-      inputAmount,
-      output,
-      outputAmount,
-      machine,
-    }
-    onSave(savedRecipe)
+      className: recipe?.className ?? crypto.randomUUID(),
+      name: recipeName,
+      duration,
+      ingredients: [
+        {
+          item: input,
+          amount: inputAmount,
+        },
+      ],
+      products: [
+        {
+          item: output,
+          amount: outputAmount,
+        },
+      ],
+      producedIn: [machine],
+      customRecipe: true,
+    };
+
+    onSave(savedRecipe);
   }
-  return(
+
+  return (
     <main className="costum_recipe_editor">
       <section>
         <h2>{recipe ? "Rezept bearbeiten" : "Neues Rezept erstellen"}</h2>
@@ -78,7 +94,11 @@ const [errorMessage,setErrorMessage] = useState("");
           />
 
           <label>Eingabe:</label>
-          <select className={errors.input ? "error-field" : ""} value={input} onChange={(e) => setInput(e.target.value)}>
+          <select
+            className={errors.input ? "error-field" : ""}
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+          >
             <option value="">Eingabe wählen</option>
             {items.map((item) => (
               <option key={item.id} value={item.id}>
@@ -95,8 +115,12 @@ const [errorMessage,setErrorMessage] = useState("");
             onChange={(event) => setInputAmount(Number(event.target.value))}
           />
 
-           <label>Ausgabe:</label>
-          <select className={errors.output ? "error-field" : ""} value={output} onChange={(e) => setOutput(e.target.value)}>
+          <label>Ausgabe:</label>
+          <select
+            className={errors.output ? "error-field" : ""}
+            value={output}
+            onChange={(event) => setOutput(event.target.value)}
+          >
             <option value="">Ausgabe wählen</option>
             {items.map((item) => (
               <option key={item.id} value={item.id}>
@@ -114,7 +138,11 @@ const [errorMessage,setErrorMessage] = useState("");
           />
 
           <label>Fabrik:</label>
-          <select className={errors.machine ? "error-field" : ""} value={machine} onChange={(e) => setMachine(e.target.value)}>
+          <select
+            className={errors.machine ? "error-field" : ""}
+            value={machine}
+            onChange={(event) => setMachine(event.target.value)}
+          >
             <option value="">Fabrik wählen</option>
             {factories.map((factory) => (
               <option key={factory.id} value={factory.id}>
@@ -122,16 +150,20 @@ const [errorMessage,setErrorMessage] = useState("");
               </option>
             ))}
           </select>
-          {errorMessage && (
-            <p className="error-message">
-              {errorMessage}
-            </p>
-          )}
+
+          <label>Dauer in Sekunden:</label>
+          <input
+            type="number"
+            min="1"
+            value={duration}
+            onChange={(event) => setDuration(Number(event.target.value))}
+          />
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+
           <button type="submit">{recipe ? "Änderungen speichern" : "Rezept erstellen"}</button>
           <button type="button" onClick={onCancel}>Zurück</button>
-
         </form>
       </section>
     </main>
-  )
+  );
 }

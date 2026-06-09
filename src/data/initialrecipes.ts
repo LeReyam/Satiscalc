@@ -1,8 +1,8 @@
-import type { Recipe } from "../types";
+/*import type { Recipe } from "../types";
 
 export const initialRecipes: Recipe[] = [
   {
-    id: "alien-dna-capsule",
+    className: "alien-dna-capsule",
     name: "Alien DNA Capsule",
     input: "Alien Protein",
     inputAmount: 10,
@@ -11,7 +11,7 @@ export const initialRecipes: Recipe[] = [
     machine: "Constructor",
   },
   {
-    id: "aluminium-casing",
+    className: "aluminium-casing",
     name: "Aluminium Casing",
     input: "Aluminium Ingot",
     inputAmount: 3,
@@ -19,4 +19,4 @@ export const initialRecipes: Recipe[] = [
     outputAmount: 2,
     machine: "Constructor",
   },
-];
+];*/

@@ -28,7 +28,7 @@ export function Recipe_selector({
           onChange={(event) => onRecipeChange(event.target.value)}
         >
           {recipes.map((recipe) => (
-            <option key={recipe.id} value={recipe.id}>
+            <option key={recipe.className} value={recipe.className}>
               {recipe.name}
             </option>
           ))}

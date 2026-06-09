@@ -2,12 +2,12 @@ import type { Recipe } from "../types";
 import { items } from "../data/items";
 import { factories } from "../data/factories";
 
-type CostumRecipetableProps =  {
+type CostumRecipetableProps = {
   recipes: Recipe[];
   onCreateRecipe: () => void;
-  onEditRecipe: (id: string) => void;
-  onDeleteRecipe: (id: string) => void
-}
+  onEditRecipe: (className: string) => void;
+  onDeleteRecipe: (className: string) => void;
+};
 
 export function Costum_recipetable({
   recipes,
@@ -15,6 +15,7 @@ export function Costum_recipetable({
   onEditRecipe,
   onDeleteRecipe,
 }: CostumRecipetableProps) {
+  const customRecipes = recipes.filter((recipe) => recipe.customRecipe);
 
   function getItemName(itemId: string) {
     return items.find((item) => item.id === itemId)?.name ?? itemId;
@@ -33,7 +34,7 @@ export function Costum_recipetable({
 
         <div className="table-wrapper">
           <table className="table-info">
-            <caption>Costum-Rezepte</caption>
+            <caption>Custom-Rezepte</caption>
 
             <thead>
               <tr>
@@ -45,32 +46,45 @@ export function Costum_recipetable({
               </tr>
             </thead>
 
-           <tbody>
-            {recipes.length === 0 ? (
-              <tr>
-                <td colSpan={5}>
-                  Noch keine eigenen Rezepte vorhanden.
-                </td>
-              </tr>
-            ) : (
-              recipes.map((recipe) => (
-                <tr key={recipe.id}>
-                  <td>{recipe.name}</td>
-                  <td>
-                    <p>{recipe.inputAmount}x {getItemName(recipe.input)}</p>
-                  </td>
-                  <td>
-                    <p>{recipe.outputAmount}x {getItemName(recipe.output)}</p>
-                  </td>
-                  <td>{getFactoryName(recipe.machine)}</td>
-                  <td>
-                    <button type="button" onClick={() => onEditRecipe(recipe.id)}>Bearbeiten</button>
-                    <button type="button" onClick={() => onDeleteRecipe(recipe.id)}>Löschen</button>
-                  </td>
+            <tbody>
+              {customRecipes.length === 0 ? (
+                <tr>
+                  <td colSpan={5}>Noch keine eigenen Rezepte vorhanden.</td>
                 </tr>
-              ))
-            )}
-          </tbody>
+              ) : (
+                customRecipes.map((recipe) => (
+                  <tr key={recipe.className}>
+                    <td>{recipe.name}</td>
+
+                    <td>
+                      {recipe.ingredients.map((ingredient) => (
+                        <p key={ingredient.item}>
+                          {ingredient.amount}x {getItemName(ingredient.item)}
+                        </p>
+                      ))}
+                    </td>
+
+                    <td>
+                      {recipe.products.map((product) => (
+                        <p key={product.item}>
+                          {product.amount}x {getItemName(product.item)}
+                        </p>
+                      ))}
+                    </td>
+
+                    <td>
+                      {recipe.producedIn.map((factoryId) =>
+                        (<p key={factoryId}>{getFactoryName(factoryId)}</p>
+                      ))}
+                    </td>
+                    <td>
+                      <button type="button" onClick={() => onEditRecipe(recipe.className)}>Bearbeiten</button>
+                      <button type="button" onClick={() => onDeleteRecipe(recipe.className)}>Löschen</button>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
           </table>
         </div>
       </section>

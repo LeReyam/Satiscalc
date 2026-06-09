@@ -1,0 +1,490 @@
+[
+  {
+    "id": "Desc_PackagedIonizedFuel_C",
+    "name": "Abgefüllter Ionisierter Treibstoff"
+  },
+  {
+    "id": "Desc_PackagedRocketFuel_C",
+    "name": "Abgefüllter Raketentreibstoff"
+  },
+  {
+    "id": "Desc_PackagedOilResidue_C",
+    "name": "Abgefüllter Schwerölrückstand"
+  },
+  {
+    "id": "Desc_Fuel_C",
+    "name": "Abgefüllter Treibstoff"
+  },
+  {
+    "id": "Desc_TurboFuel_C",
+    "name": "Abgefüllter Turbotreibstoff"
+  },
+  {
+    "id": "Desc_PackagedOil_C",
+    "name": "Abgefülltes Öl"
+  },
+  {
+    "id": "Desc_PackagedWater_C",
+    "name": "Abgefülltes Wasser"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_5_C",
+    "name": "Adaptive Steuereinheit"
+  },
+  {
+    "id": "Desc_AluminumPlate_C",
+    "name": "Alclad-Aluminiumblech"
+  },
+  {
+    "id": "Desc_AlienDNACapsule_C",
+    "name": "Alien DNA-Kapsel"
+  },
+  {
+    "id": "Desc_AlienProtein_C",
+    "name": "Alien-Protein"
+  },
+  {
+    "id": "Desc_AluminumIngot_C",
+    "name": "Aluminiumbarren"
+  },
+  {
+    "id": "Desc_AluminumCasing_C",
+    "name": "Aluminiumgehäuse"
+  },
+  {
+    "id": "Desc_AluminaSolution_C",
+    "name": "Aluminiumoxidlösung"
+  },
+  {
+    "id": "Desc_AluminumScrap_C",
+    "name": "Aluminiumschrott"
+  },
+  {
+    "id": "Desc_QuantumEnergy_C",
+    "name": "Angeregte Photonische Materie"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_3_C",
+    "name": "Automatische Verkabelung"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_11_C",
+    "name": "Ballistischer Warpantrieb"
+  },
+  {
+    "id": "Desc_Battery_C",
+    "name": "Batterie"
+  },
+  {
+    "id": "Desc_Cement_C",
+    "name": "Beton"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_10_C",
+    "name": "Biochemischer Modellierer"
+  },
+  {
+    "id": "Desc_Crystal_C",
+    "name": "Blaue Elektroschnecke"
+  },
+  {
+    "id": "Desc_XmasBall2_C",
+    "name": "Blaue FICSMAS Kugel"
+  },
+  {
+    "id": "Desc_GoldIngot_C",
+    "name": "Caterium-Barren"
+  },
+  {
+    "id": "Desc_Computer_C",
+    "name": "Computer"
+  },
+  {
+    "id": "Desc_Diamond_C",
+    "name": "Diamanten"
+  },
+  {
+    "id": "Desc_Wire_C",
+    "name": "Draht"
+  },
+  {
+    "id": "Desc_PressureConversionCube_C",
+    "name": "Druckumwandlungswürfel"
+  },
+  {
+    "id": "Desc_DarkMatter_C",
+    "name": "Dunkle-Materie-Kristall"
+  },
+  {
+    "id": "Desc_DarkEnergy_C",
+    "name": "Dunkle-Materie-Rückstand"
+  },
+  {
+    "id": "Desc_Snow_C",
+    "name": "Echter FICSMAS-Schnee"
+  },
+  {
+    "id": "Desc_XmasBall4_C",
+    "name": "Eisen FICSMAS Kugel"
+  },
+  {
+    "id": "Desc_IronIngot_C",
+    "name": "Eisenbarren"
+  },
+  {
+    "id": "Desc_IronPlate_C",
+    "name": "Eisenplatte"
+  },
+  {
+    "id": "Desc_IronRod_C",
+    "name": "Eisenstange"
+  },
+  {
+    "id": "Desc_ElectromagneticControlRod_C",
+    "name": "Elektromagnetische Steuerstange"
+  },
+  {
+    "id": "Desc_FicsiteIngot_C",
+    "name": "Ficsit-Barren"
+  },
+  {
+    "id": "Desc_FicsiteMesh_C",
+    "name": "Ficsit-Trigon"
+  },
+  {
+    "id": "Desc_Gift_C",
+    "name": "FICSMAS Geschenk"
+  },
+  {
+    "id": "Desc_XmasBallCluster_C",
+    "name": "FICSMAS Kugelbündel"
+  },
+  {
+    "id": "Desc_XmasBow_C",
+    "name": "FICSMAS Schleife"
+  },
+  {
+    "id": "Desc_XmasStar_C",
+    "name": "FICSMAS Wunderstern"
+  },
+  {
+    "id": "Desc_XmasBranch_C",
+    "name": "FICSMAS Zweig"
+  },
+  {
+    "id": "Desc_XmasDataCartridge1_C",
+    "name": "FICSMAS-Datenmodul – Tag 1"
+  },
+  {
+    "id": "Desc_XmasDataCartridge4_C",
+    "name": "FICSMAS-Datenmodul – Tag 14"
+  },
+  {
+    "id": "Desc_XmasDataCartridge2_C",
+    "name": "FICSMAS-Datenmodul – Tag 4"
+  },
+  {
+    "id": "Desc_XmasDataCartridge3_C",
+    "name": "FICSMAS-Datenmodul – Tag 8"
+  },
+  {
+    "id": "Desc_XmasWreath_C",
+    "name": "FICSMAS-Kranz"
+  },
+  {
+    "id": "Desc_Ficsonium_C",
+    "name": "Ficsonium"
+  },
+  {
+    "id": "Desc_ModularFrameLightweight_C",
+    "name": "Funksteuerungseinheit"
+  },
+  {
+    "id": "Desc_Filter_C",
+    "name": "Gasfilter"
+  },
+  {
+    "id": "Desc_Crystal_mk2_C",
+    "name": "Gelbe Elektroschnecke"
+  },
+  {
+    "id": "Desc_DissolvedSilica_C",
+    "name": "Gelöster Quarzsand"
+  },
+  {
+    "id": "Desc_Rubber_C",
+    "name": "Gummi"
+  },
+  {
+    "id": "Desc_HighSpeedConnector_C",
+    "name": "Highspeed-Anschluss"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_1_C",
+    "name": "Intelligente Beschichtung"
+  },
+  {
+    "id": "Desc_IonizedFuel_C",
+    "name": "Ionisierter Treibstoff"
+  },
+  {
+    "id": "Desc_HazmatFilter_C",
+    "name": "Jodfilter"
+  },
+  {
+    "id": "Desc_Cable_C",
+    "name": "Kabel"
+  },
+  {
+    "id": "Desc_CircuitBoardHighSpeed_C",
+    "name": "KI-Begrenzer"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_12_C",
+    "name": "KI-Erweiterungsserver"
+  },
+  {
+    "id": "Desc_AluminumPlateReinforced_C",
+    "name": "Kühlkörper"
+  },
+  {
+    "id": "Desc_CoolingSystem_C",
+    "name": "Kühlsystem"
+  },
+  {
+    "id": "Desc_Plastic_C",
+    "name": "Kunststoff"
+  },
+  {
+    "id": "Desc_XmasBall3_C",
+    "name": "Kupfer FICSMAS Kugel"
+  },
+  {
+    "id": "Desc_CopperIngot_C",
+    "name": "Kupferbarren"
+  },
+  {
+    "id": "Desc_CopperSheet_C",
+    "name": "Kupferblech"
+  },
+  {
+    "id": "Desc_CopperDust_C",
+    "name": "Kupferpulver"
+  },
+  {
+    "id": "Desc_GasTank_C",
+    "name": "Leerer Flüssigkeitstank"
+  },
+  {
+    "id": "Desc_FluidCanister_C",
+    "name": "Leerer Kanister"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_6_C",
+    "name": "Magnetfeld-Generator"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_2_C",
+    "name": "Mehrzweckgerüst"
+  },
+  {
+    "id": "Desc_WAT2_C",
+    "name": "Mercer-Sphäre"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_4_C",
+    "name": "Modularer Motor"
+  },
+  {
+    "id": "Desc_ModularFrame_C",
+    "name": "Modularer Rahmen"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_7_C",
+    "name": "Montage-Leitsystem"
+  },
+  {
+    "id": "Desc_Motor_C",
+    "name": "Motor"
+  },
+  {
+    "id": "Desc_TemporalProcessor_C",
+    "name": "Neural-Quantenprozessor"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_9_C",
+    "name": "Nukleare Pasta"
+  },
+  {
+    "id": "Desc_PetroleumCoke_C",
+    "name": "Petrolkoks"
+  },
+  {
+    "id": "Desc_CircuitBoard_C",
+    "name": "Platine"
+  },
+  {
+    "id": "Desc_PlutoniumWaste_C",
+    "name": "Plutonium-Abfall"
+  },
+  {
+    "id": "Desc_PlutoniumPellet_C",
+    "name": "Plutoniumpellet"
+  },
+  {
+    "id": "Desc_PolymerResin_C",
+    "name": "Polymerharz"
+  },
+  {
+    "id": "Desc_QuartzCrystal_C",
+    "name": "Quarzkristall"
+  },
+  {
+    "id": "Desc_CrystalOscillator_C",
+    "name": "Quarzoszillator"
+  },
+  {
+    "id": "Desc_Silica_C",
+    "name": "Quarzsand"
+  },
+  {
+    "id": "Desc_RocketFuel_C",
+    "name": "Raketentreibstoff"
+  },
+  {
+    "id": "Desc_GunpowderMK2_C",
+    "name": "Rauchschwaches Pulver"
+  },
+  {
+    "id": "Desc_SAMIngot_C",
+    "name": "Reanimierte SAM"
+  },
+  {
+    "id": "Desc_XmasBall1_C",
+    "name": "Rote FICSMAS Kugel"
+  },
+  {
+    "id": "Desc_Rotor_C",
+    "name": "Rotor"
+  },
+  {
+    "id": "Desc_NitricAcid_C",
+    "name": "Salpetersäure"
+  },
+  {
+    "id": "Desc_SAMFluctuator_C",
+    "name": "SAM-Fluktuator"
+  },
+  {
+    "id": "Desc_IronScrew_C",
+    "name": "Schrauben"
+  },
+  {
+    "id": "Desc_Gunpowder_C",
+    "name": "Schwarzpulver"
+  },
+  {
+    "id": "Desc_SulfuricAcid_C",
+    "name": "Schwefelsäure"
+  },
+  {
+    "id": "Desc_ModularFrameHeavy_C",
+    "name": "Schwerer modularer Rahmen"
+  },
+  {
+    "id": "Desc_HeavyOilResidue_C",
+    "name": "Schwerölrückstand"
+  },
+  {
+    "id": "Desc_SingularityCell_C",
+    "name": "Singularitätszelle"
+  },
+  {
+    "id": "Desc_SteelIngot_C",
+    "name": "Stahlbarren"
+  },
+  {
+    "id": "Desc_SteelPlateReinforced_C",
+    "name": "Stahlbetonträger"
+  },
+  {
+    "id": "Desc_SteelPipe_C",
+    "name": "Stahlrohr"
+  },
+  {
+    "id": "Desc_SteelPlate_C",
+    "name": "Stahlträger"
+  },
+  {
+    "id": "Desc_Stator_C",
+    "name": "Stator"
+  },
+  {
+    "id": "Desc_ComputerSuper_C",
+    "name": "Supercomputer"
+  },
+  {
+    "id": "Desc_SpaceElevatorPart_8_C",
+    "name": "Thermaler Raketenantrieb"
+  },
+  {
+    "id": "Desc_LiquidFuel_C",
+    "name": "Treibstoff"
+  },
+  {
+    "id": "Desc_HighSpeedWire_C",
+    "name": "Turbodraht"
+  },
+  {
+    "id": "Desc_MotorLightweight_C",
+    "name": "Turbomotor"
+  },
+  {
+    "id": "Desc_LiquidTurboFuel_C",
+    "name": "Turbotreibstoff"
+  },
+  {
+    "id": "Desc_QuantumOscillator_C",
+    "name": "Überlagerungsoszillator"
+  },
+  {
+    "id": "Desc_PlutoniumCell_C",
+    "name": "Ummantelte Plutoniumzelle"
+  },
+  {
+    "id": "Desc_UraniumCell_C",
+    "name": "Ummantelte Uranzelle"
+  },
+  {
+    "id": "Desc_NonFissibleUranium_C",
+    "name": "Unspaltbares Uran"
+  },
+  {
+    "id": "Desc_NuclearWaste_C",
+    "name": "Uran-Abfall"
+  },
+  {
+    "id": "Desc_CompactedCoal_C",
+    "name": "Verdichtete Kohle"
+  },
+  {
+    "id": "Desc_ModularFrameFused_C",
+    "name": "Verschmolzener modularer Rahmen"
+  },
+  {
+    "id": "Desc_IronPlateReinforced_C",
+    "name": "Verstärkte Eisenplatte"
+  },
+  {
+    "id": "Desc_Crystal_mk3_C",
+    "name": "Violette Elektroschnecke"
+  },
+  {
+    "id": "Desc_TimeCrystal_C",
+    "name": "Zeitkristall"
+  },
+  {
+    "id": "Desc_CandyCane_C",
+    "name": "Zuckerstange"
+  }
+]

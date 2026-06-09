@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import type { Recipe } from "./types";
-import { initialRecipes } from "./data/initialrecipes";
+import { initialRecipes } from "./data/recipes";
 
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
@@ -16,10 +16,10 @@ import { Productionplanner_graph } from "./components/productionplanner-graph";
 
 function App() {
   const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes);
-  const [selectedRecipeId, setSelectedRecipeId] = useState(recipes[0]?.id ?? "");
+  const [selectedRecipeId, setSelectedRecipeId] = useState("");
   const [amount, setAmount] = useState(1);
 
-  const selectedRecipe = recipes.find( (recipe) => recipe.id === selectedRecipeId);
+  const selectedRecipe = recipes.find( (recipe) => recipe.className === selectedRecipeId);
   const [page, setPage] = useState("planner");
 
   const [editingRecipeId, setEditingRecipeId] = useState<string | null>(null);
@@ -29,12 +29,12 @@ function App() {
     setRecipes(
       (currentRecipes) => {
         const recipeExists = currentRecipes.some(
-          (currentRecipe) => currentRecipe.id === recipe.id
+          (currentRecipe) => currentRecipe.className === recipe.className
         )
 
         if (recipeExists) {
           return currentRecipes.map((currentRecipe) =>
-            currentRecipe.id === recipe.id ? recipe : currentRecipe
+            currentRecipe.className === recipe.className ? recipe : currentRecipe
           )
         }
         return [...currentRecipes, recipe]
@@ -45,18 +45,18 @@ function App() {
   }
 
   function handleCreateRecipe(){
-    setEditingRecipeId(null),
+    setEditingRecipeId(null);
     setPage("recipe-editor")
   }
 
-  function handleEditRecipe(id: string){
-    setEditingRecipeId(id);
+  function handleEditRecipe(className: string){
+    setEditingRecipeId(className);
     setPage("recipe-editor");
   }
 
-  function handleDeleteRecipe(id: string){
+  function handleDeleteRecipe(className: string){
     setRecipes((currentRecipes) =>
-      currentRecipes.filter((recipe) => recipe.id !== id)
+      currentRecipes.filter((recipe) => recipe.className !== className)
     )
   }
 
@@ -75,13 +75,15 @@ function App() {
 
           <Productionplanner_graph />
 
-          {selectedRecipe && (
-            <Productionplanner_output
-              recipe={selectedRecipe}
-              amount={amount}
-            />
+          {selectedRecipe ? (
+              <Productionplanner_output
+                recipe={selectedRecipe}
+                amount={amount}
+              />
+            ) : (
+              <p>Bitte wähle zuerst ein Rezept aus.</p>
           )}
-        </>
+          </>
       )}
 
       {page === "login" && <Login />}
@@ -101,7 +103,7 @@ function App() {
 
       {page === "recipe-editor" && (
         <Costum_recipe_editor
-          recipe={recipes.find((recipe) => recipe.id === editingRecipeId)}
+          recipe={recipes.find((recipe) => recipe.className === editingRecipeId)}
           onSave={handleSaveRecipe}
           onCancel={() => setPage("recipes")}
         />
