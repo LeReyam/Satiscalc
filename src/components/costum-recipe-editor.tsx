@@ -74,6 +74,7 @@ export function Costum_recipe_editor({
       ],
       producedIn: [machine],
       customRecipe: true,
+      inBuildGun:false
     };
 
     onSave(savedRecipe);
