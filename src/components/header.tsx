@@ -6,18 +6,11 @@ type HeaderProps = {
 export function Header({ setPage }: HeaderProps) {
   return (
     <header id="start">
-<<<<<<< Updated upstream
-      <h1>Produktionsplaner</h1>
-
-      <nav>
-        <button onClick={() => setPage("planner")}>Produktionsplaner</button>
-=======
-      <h1>Productionplanner</h1>
+      <h1>Produktionsplanner</h1>
         <nav>
-          <button onClick={() => setPage("planner")}>Productionplanner</button>
+          <button onClick={() => setPage("planner")}>Produktionsplanner</button>
 
           <button onClick={() => setPage("recipes")}>Custom-Rezepte</button>
->>>>>>> Stashed changes
 
           <button onClick={() => setPage("about")}>About</button>
 
