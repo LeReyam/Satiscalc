@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import type { Recipe } from "./types";
 import { initialRecipes } from "./data/recipes";
-
+ 
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { Login } from "./components/login";
@@ -13,6 +13,7 @@ import { Costum_recipe_editor } from "./components/costum-recipe-editor";
 import { Recipe_selector } from "./components/recipeselector";
 import { Productionplanner_output } from "./components/productionplanner-output";
 import { Productionplanner_graph } from "./components/productionplanner-graph";
+import { Password_reset } from "./components/password-reset";
 
 function App() {
   const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes);
@@ -86,8 +87,9 @@ function App() {
           </>
       )}
 
-      {page === "login" && <Login />}
+      {page === "login" && <Login setPage={setPage} />}
 
+      {page === "password-reset" && <Password_reset setPage={setPage} />}
       {page === "register" && <Register />}
 
       {page === "about" && <About />}

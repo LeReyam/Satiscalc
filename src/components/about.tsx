@@ -1,17 +1,23 @@
 export function About() {
   return (
-    <div title="about">
+    <div title="about" >
+      
       <section>
-        <h2>Ersteller</h2>
+        <h2>Unser Projekt</h2>
         <ul>
-          <li>L.Mayer</li>
-          <li>N.Plötz</li>
-          <li>F.Dunstheimer</li>
-        </ul>
-        <h2>Projekt</h2>
-        <p>
-          <a href="https://github.com/LeReyam/Satiscalc">Unser Repository</a>
+          <li> Ein Produktionsplaner für das Factory Building game Satisfactory</li>
+            <p>
+              Erstellt im Rahmen des Webappkurses an der{" "}
+              <a href="https://www.htwg-konstanz.de"> HTWG-Konstanz</a>
+              .
+            </p>
+            <p>
+              
+          Weitere Informationen finden Sie auf der offiziellen{" "}
+          <a href="https://www.satisfactorygame.com">Satisfactory-Website</a>
+          {" "}von Coffee Stain Studios.
         </p>
+        </ul>
       </section>
     </div>
   );

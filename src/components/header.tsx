@@ -5,10 +5,10 @@ type HeaderProps = {
 export function Header({ setPage }: HeaderProps) {
   return (
     <header id="start">
-      <h1>Productionplanner</h1>
+      <h1>Produktionsplaner</h1>
 
       <nav>
-        <button onClick={() => setPage("planner")}>Productionplanner</button>
+        <button onClick={() => setPage("planner")}>Produktionsplaner</button>
 
         <button onClick={() => setPage("recipes")}>Custom-Rezepte</button>
 

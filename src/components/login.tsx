@@ -1,4 +1,11 @@
-export function Login() {
+import { Password_reset } from "./password-reset";
+
+
+interface LoginProps {
+  setPage: (page: string) => void;
+}
+
+export function Login({ setPage }: LoginProps) {
   return (
     <main id="planner">
       <section>
@@ -7,14 +14,19 @@ export function Login() {
           <p>
             <input type="text" placeholder="M.Mustermann@Muster.de" />
           </p>
-          <label id="Passwort:">Passwort:</label>
+          <label htmlFor="pwd">Passwort:</label>
           <p>
             <input type="password" id="pwd" placeholder="Passwort" />
-            <button type="button"></button>
           </p>
-          <a href="resetpassword.html">Forgot your password?</a>
+          <button type="button" onClick={()=> setPage("password-reset")}>
+            Reset-Password
+          </button>
+          
           <button type="submit">LOGIN</button>
-          <a href="register.html">Sign-up</a>
+
+          <button type="button" onClick={() => setPage("register")}>
+            Sign-up
+          </button>
         </form>
       </section>
     </main>
