@@ -1,0 +1,27 @@
+header {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+header nav {
+  display: flex;
+  gap: 10px;
+}
+
+header nav button {
+  flex: 1;
+  padding: 12px;
+
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
+
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+header nav button:hover {
+  background-color: var(--color-accent-darker)
+}

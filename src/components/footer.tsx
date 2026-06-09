@@ -1,19 +1,24 @@
+import "./footer.css"
 export function Footer() {
   return (
-    <div id="ende">
-      <ul>
-        <li>
-          Ersteller:
-          <ul>
-            <li>L.Mayer</li>
-            <li>N.Plötz</li>
-            <li>F.Dunstheimer</li>
-          </ul>
-        </li>
-        <li>
-          <a href="https://github.com/LeReyam/Satiscalc">Unser Repository</a>
-        </li>
-      </ul>
-    </div>
+    <footer id="ende">
+      <span>Ersteller: L. Mayer, N. Plötz, F. Dunstheimer</span>
+
+      <a
+        href="https://github.com/LeReyam/Satiscalc"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Repository
+      </a>
+
+      <a
+        href="https://www.htwg-konstanz.de"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        HTWG Konstanz
+      </a>
+    </footer>
   );
 }

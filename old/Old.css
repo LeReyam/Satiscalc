@@ -1,0 +1,301 @@
+:root {
+  --color-bg: #0f172a;
+  --color-card: #434547;
+  --color-accent: #fd9800;
+  --color-text: #e2e8f0;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  font-size: larger;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: var(--color-text);
+}
+hr {
+  background-color: #fd9800;
+  height: 8px;
+  border-radius: 3px;
+  border: none;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #fd9800;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+nav {
+  display: flex;
+  gap: 20px;
+  padding: 3px;
+  border-radius: 5px;
+  border: none;
+}
+nav a {
+  color: #fd9800;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  color: white;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  min-height: 70vh;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#reqi {
+  align-items: flex-start;
+}
+
+p {
+  margin: 3px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--color-card);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  min-width: 280px;
+}
+
+h2 {
+  margin: 10px;
+}
+
+.image-viewer {
+  width: 100%;
+  max-width: 950px;
+  height: 70vh;
+  overflow: auto;
+  border-radius: 14px;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y pinch-zoom;
+  scrollbar-width: thin;
+  scrollbar-color: #fd9800 #0b1120;
+  scroll-padding: 3px;
+}
+
+.image-stage {
+  min-width: max-content;
+  min-height: max-content;
+  padding: 12px;
+}
+
+#image {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: auto;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+a {
+  color: #45a1ec;
+}
+
+a:not(.btn):hover {
+  color: #b6813c;
+}
+
+button,
+.btn {
+  background: var(--color-accent);
+  border: none;
+  margin: 3px;
+  padding: 10px;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+button:hover,
+.btn:hover {
+  transform: scale(1.05);
+}
+a.btn:hover {
+  color: none;
+}
+
+select,
+input {
+  width: 260px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 1rem;
+}
+.checkbox {
+  width: auto;
+  align-content: center;
+}
+
+#number {
+  width: 80px;
+  text-align: center;
+}
+
+table {
+  table-layout: fixed;
+  border-radius: 5px;
+  border-spacing: 7px;
+  padding: 3px;
+  border: 3px solid #fd9800;
+  border-top: none;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+caption {
+  font-weight: bold;
+  font-size: larger;
+  border: 3px solid #fd9800;
+  border-radius: 5px;
+  border-spacing: 7px;
+  border-bottom: none;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+th {
+  text-align: center;
+  background-color: #fd9800;
+  color: #020617;
+  border-radius: 5px;
+  border-spacing: 1px;
+  width: fit-content;
+  padding: 5px;
+}
+
+td {
+  padding: 3px;
+  text-align: center;
+  border-radius: 3px;
+  border-spacing: 3px;
+  width: fit-content;
+}
+td:nth-child(1),
+th:nth-child(1) {
+  width: 40px;
+}
+
+td:nth-child(2) {
+  max-width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.table-wrapper td:nth-child(3),
+td:nth-child(4) {
+  width: 30px;
+}
+
+.new-recipe {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+@media (max-width: 801px) {
+  main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  form {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  select,
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #fd9800 #0b1120;
+    scroll-padding: 3px;
+  }
+
+  table {
+    min-width: 520px;
+  }
+
+  th,
+  td {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+
+  button,
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .image-viewer {
+    width: 100%;
+    height: 60vh;
+  }
+
+  #image {
+    transform: none;
+    margin: 0;
+  }
+}

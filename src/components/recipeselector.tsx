@@ -1,6 +1,6 @@
+import "./recipeselector.css"
 import type { Recipe } from "../types";
 import { items } from "../data/items";
-
 
 type RecipeSelectorProps = {
   recipes: Recipe[];
@@ -30,10 +30,12 @@ export function Recipe_selector({
     );
   }
   return (
-    <section>
+    <section className="recipe-selector">
       <form>
-        <label title="rezept">Wähle das Rezept:</label>
+        <div className="form-row">
+          <label htmlFor="rezept">Wähle das Rezept:</label>
 
+<<<<<<< Updated upstream
         <select
           name="rezept"
           id="rezept"
@@ -47,10 +49,24 @@ export function Recipe_selector({
             </option>
           ))}
         </select>
+=======
+          <select
+            id="rezept"
+            value={selectedRecipeId}
+            onChange={(event) => onRecipeChange(event.target.value)}
+          >
+            {recipes.map((recipe) => (
+              <option key={recipe.className} value={recipe.className}>
+                {recipe.name}
+              </option>
+            ))}
+          </select>
+        </div>
+>>>>>>> Stashed changes
 
-        <label id="menge">Gebe die gewünschte Anzahl ein:</label>
+        <div className="form-row">
+          <label htmlFor="number">Gebe die gewünschte Anzahl ein:</label>
 
-        <p>
           <input
             type="number"
             value={amount}
@@ -59,8 +75,12 @@ export function Recipe_selector({
             id="number"
             onChange={(event) => onAmountChange(Number(event.target.value))}
           />
+<<<<<<< Updated upstream
           /min
         </p>
+=======
+        </div>
+>>>>>>> Stashed changes
       </form>
     </section>
   );
