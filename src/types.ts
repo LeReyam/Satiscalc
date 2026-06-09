@@ -30,4 +30,5 @@ export interface Recipe {
   products: RecipeItem[];
   producedIn: string[];
   customRecipe: boolean;
+  inBuildGun: boolean;
 }
