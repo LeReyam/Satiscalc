@@ -19,16 +19,19 @@ export function Recipe_selector({
 }: RecipeSelectorProps) {
 
   function getRecipeDisplayName(recipe: Recipe) {
+    if (recipe.customRecipe) {
+      return recipe.name;
+    }
+
     const firstProduct = recipe.products[0];
 
     if (!firstProduct) {
       return recipe.name;
     }
 
-    return (
-      items.find((item) => item.id === firstProduct.item)?.name ?? recipe.name
-    );
+    return items.find((item) => item.id === firstProduct.item)?.name ?? recipe.name;
   }
+  
   return (
     <section className="recipe-selector">
       <form>
@@ -42,11 +45,15 @@ export function Recipe_selector({
           onChange={(event) => onRecipeChange(event.target.value)}
         >
           <option value="">Rezept auswählen</option>
-          {recipes.map((recipe) => (
+        {[...recipes]
+          .sort((a, b) =>
+            getRecipeDisplayName(a).localeCompare(getRecipeDisplayName(b), "de")
+          )
+          .map((recipe) => (
             <option key={recipe.className} value={recipe.className}>
               {getRecipeDisplayName(recipe)}
             </option>
-          ))}
+        ))}
         </select>
           </div>
         <div className="form-row">
