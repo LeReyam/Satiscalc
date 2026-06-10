@@ -1,7 +1,8 @@
+import "./about.css"
 export function About() {
   return (
-    <div title="about" >
-      
+    <main className="about" >
+
       <section>
         <h2>Unser Projekt</h2>
         <ul>
@@ -12,13 +13,13 @@ export function About() {
               .
             </p>
             <p>
-              
+
           Weitere Informationen finden Sie auf der offiziellen{" "}
           <a href="https://www.satisfactorygame.com">Satisfactory-Website</a>
           {" "}von Coffee Stain Studios.
         </p>
         </ul>
       </section>
-    </div>
+    </main>
   );
 }
