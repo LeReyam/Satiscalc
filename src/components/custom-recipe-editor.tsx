@@ -1,19 +1,20 @@
+import "./custom-recipe-editor.css"
 import { useState } from "react";
 import type { Recipe } from "../types";
 import { items } from "../data/items";
 import { factories } from "../data/factories";
 
-type CostumRecipeEditorProps = {
+type CustomRecipeEditorProps = {
   recipe?: Recipe;
   onSave: (recipe: Recipe) => void;
   onCancel: () => void;
 };
 
-export function Costum_recipe_editor({
+export function Custom_recipe_editor({
   recipe,
   onSave,
   onCancel,
-}: CostumRecipeEditorProps) {
+}: CustomRecipeEditorProps) {
   const [name, setName] = useState(recipe?.name ?? "");
   const [input, setInput] = useState(recipe?.ingredients[0]?.item ?? "");
   const [inputAmount, setInputAmount] = useState(
@@ -81,7 +82,7 @@ export function Costum_recipe_editor({
   }
 
   return (
-    <main className="costum_recipe_editor">
+    <main className="custom_recipe_editor">
       <section>
         <h2>{recipe ? "Rezept bearbeiten" : "Neues Rezept erstellen"}</h2>
 

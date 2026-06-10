@@ -1,0 +1,19 @@
+.image-viewer {
+  width: 100%;
+  height: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.image-stage {
+  height: 100%;
+}
+
+.image-stage img {
+  height: 100%;
+  width: auto;
+
+  max-width: none;
+  display: block;
+}

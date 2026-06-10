@@ -1,7 +1,10 @@
+import "./planner.css";
+
 import type { Recipe } from "../types";
 import { Recipe_selector } from "./recipeselector";
 import { Productionplanner_output } from "./productionplanner-output";
 import { Productionplanner_graph } from "./productionplanner-graph";
+
 type PlannerProps = {
   recipes: Recipe[];
   selectedRecipeId: string;
@@ -21,7 +24,7 @@ export function Planner({
 }: PlannerProps) {
   return (
     <main className="planner-layout">
-      <div className="planner-top">
+      <section className="planner-selector planner-card">
         <Recipe_selector
           recipes={recipes}
           selectedRecipeId={selectedRecipeId}
@@ -29,7 +32,9 @@ export function Planner({
           onRecipeChange={onRecipeChange}
           onAmountChange={onAmountChange}
         />
+      </section>
 
+      <section className="planner-output planner-card">
         {selectedRecipe ? (
           <Productionplanner_output
             recipe={selectedRecipe}
@@ -38,11 +43,11 @@ export function Planner({
         ) : (
           <p>Bitte wähle zuerst ein Rezept aus.</p>
         )}
-      </div>
+      </section>
 
-      <div className="planner-graph">
+      <section className="planner-graph planner-card">
         <Productionplanner_graph />
-      </div>
+      </section>
     </main>
   );
 }

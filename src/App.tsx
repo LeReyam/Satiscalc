@@ -9,8 +9,8 @@ import { Footer } from "./components/footer";
 import { Login } from "./components/login";
 import { Register } from "./components/register";
 import { About } from "./components/about";
-import { Costum_recipetable } from "./components/costum-recipetable";
-import { Costum_recipe_editor } from "./components/costum-recipe-editor";
+import { Custom_recipetable } from "./components/custom-recipetable";
+import { Custom_recipe_editor } from "./components/custom-recipe-editor";
 import { Password_reset } from "./components/password-reset";
 
 function App() {
@@ -85,7 +85,7 @@ function App() {
       {page === "about" && <About />}
 
       {page === "recipes" && (
-        <Costum_recipetable
+        <Custom_recipetable
           recipes={recipes}
           onCreateRecipe={handleCreateRecipe}
           onEditRecipe={handleEditRecipe}
@@ -94,7 +94,7 @@ function App() {
       )}
 
       {page === "recipe-editor" && (
-        <Costum_recipe_editor
+        <Custom_recipe_editor
           recipe={recipes.find((recipe) => recipe.className === editingRecipeId)}
           onSave={handleSaveRecipe}
           onCancel={() => setPage("recipes")}

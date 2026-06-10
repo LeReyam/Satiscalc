@@ -1,20 +1,21 @@
+import "./custom-recipetable.css";
 import type { Recipe } from "../types";
 import { items } from "../data/items";
 import { factories } from "../data/factories";
 
-type CostumRecipetableProps = {
+type CustomRecipetableProps = {
   recipes: Recipe[];
   onCreateRecipe: () => void;
   onEditRecipe: (className: string) => void;
   onDeleteRecipe: (className: string) => void;
 };
 
-export function Costum_recipetable({
+export function Custom_recipetable({
   recipes,
   onCreateRecipe,
   onEditRecipe,
   onDeleteRecipe,
-}: CostumRecipetableProps) {
+}: CustomRecipetableProps) {
   const customRecipes = recipes.filter((recipe) => recipe.customRecipe);
 
   function getItemName(itemId: string) {

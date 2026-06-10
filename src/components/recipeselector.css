@@ -1,16 +1,13 @@
 .recipe-selector {
-  background: var(--color-card);
-  color: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  min-width: 280px;
+  color: var(--color-accent);
+  height: 100%;
 }
 
 .recipe-selector form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: 100%;
 }
 
 .form-row {
@@ -28,4 +25,5 @@
   padding: 6px 10px;
   border-radius: 6px;
   border: 1px solid #555;
+  background-color: var(--color-accent);
 }

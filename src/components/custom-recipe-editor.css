@@ -1,0 +1,88 @@
+.custom_recipe_editor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom_recipe_editor section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom_recipe_editor #selection,
+.custom_recipe_editor form {
+  background: var(--color-card);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  min-width: 280px;
+}
+
+.custom_recipe_editor h2 {
+  color: var(--color-accent);
+  margin: 10px;
+  text-align: center;
+}
+
+.custom_recipe_editor label {
+  font-weight: 500;
+}
+
+.custom_recipe_editor select,
+.custom_recipe_editor input[type="text"],
+.custom_recipe_editor input[type="number"] {
+  width: 260px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #475569;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.custom_recipe_editor button {
+  background: var(--color-accent);
+  border: none;
+  margin: 3px;
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--color-text-dark);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.custom_recipe_editor button:hover {
+  transform: scale(1.05);
+}
+
+.custom_recipe_editor .error-field {
+  border: 2px solid #ef4444;
+}
+
+.custom_recipe_editor .error-message {
+  color: #ef4444;
+  font-weight: bold;
+  text-align: center;
+  margin: 5px 0;
+}
+
+@media (max-width: 801px) {
+  .custom_recipe_editor form {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .custom_recipe_editor select,
+  .custom_recipe_editor input {
+    width: 100%;
+  }
+}

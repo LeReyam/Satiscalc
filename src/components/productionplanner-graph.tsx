@@ -1,4 +1,6 @@
+import "./productionplanner-graph.css";
 import flowchart from "../assets/flowchart.png";
+
 export function Productionplanner_graph() {
   return (
     <section className="image-viewer">

@@ -1,5 +1,4 @@
 :root {
-
   --color-bg: #0f172a;
   --color-card: #434547;
   --color-accent: #fd9800;
@@ -9,23 +8,20 @@
   background-color: var(--color-bg);
 }
 
-.planner-layout {
+html,
+body,
+#root {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 24px;
 }
 
-.planner-top {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
+header,
+footer {
+  flex: 0 0 auto;
 }
 
-.planner-top > * {
+main {
   flex: 1;
-}
-
-.planner-graph {
-  width: 100%;
+  min-height: 0;
 }
