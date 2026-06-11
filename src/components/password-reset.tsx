@@ -1,12 +1,5 @@
 
-import { useState } from "react";
-
-interface PasswordResetProps {
-  setPage: (page: string) => void;
-}
-
-
-export function Password_reset({ setPage }: PasswordResetProps) {
+export function Password_reset() {
   return (
     <section>
       <form id="selection">

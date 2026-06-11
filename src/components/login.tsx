@@ -1,5 +1,3 @@
-import { Password_reset } from "./password-reset";
-
 
 interface LoginProps {
   setPage: (page: string) => void;
@@ -21,7 +19,7 @@ export function Login({ setPage }: LoginProps) {
           <button type="button" onClick={()=> setPage("password-reset")}>
             Reset-Password
           </button>
-          
+
           <button type="submit">LOGIN</button>
 
           <button type="button" onClick={() => setPage("register")}>

@@ -78,7 +78,7 @@ function App() {
 
       {page === "login" && <Login setPage={setPage} />}
 
-      {page === "password-reset" && <Password_reset setPage={setPage} />}
+      {page === "password-reset" && <Password_reset />}
 
       {page === "register" && <Register setPage={setPage} />}
 

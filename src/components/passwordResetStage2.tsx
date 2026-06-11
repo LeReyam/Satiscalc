@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+/*import { useState } from "react";
 
 interface PasswordResetProps {
   setPage: (page: string) => void;
@@ -23,7 +23,7 @@ export function Password_reset({ setPage }: PasswordResetProps) {
       <form id="selection">
         <label title="mail">Bitte geben Sie ihre E-Mail an:</label>
         <p>
-          <input type="text" placeholder="M.Mustermann@Muster.de" 
+          <input type="text" placeholder="M.Mustermann@Muster.de"
           value = {mail}/>
         </p>
         <button>Passwort zurücksetzen</button>
@@ -31,4 +31,4 @@ export function Password_reset({ setPage }: PasswordResetProps) {
       </form>
     </section>
   );
-}
+}*/
