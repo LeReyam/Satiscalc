@@ -20,7 +20,7 @@ npm run dev
 
 |Kriterium| Datei | Zeile / Hinweis|
 |npm + Vite| package.json, vite.config.ts| Projekt-Root|
-|TypeScript aktiv genutzt| src/types.ts,src/components/costum-recipe-editor.tsx,| Z.1-35, Z. 8 (Props)|
+|TypeScript aktiv genutzt| src/types.ts,src/components/costum-recipe-editor.tsx,| Z.1-35, Z. 7-10|
 |Komponentenzerlegung| src/components/ |about,footer, header, login, password-reset,planner, productionplanner-graph, productionplanner-output, recipeselektor, register, passwordresetstage2, custom-recipe-editor, custom-recipetable|
 |Props-Übergabe| src/App.tsx| Z. 66–74, Z. 88-92, Z. 97-100|
 |useState | src/App.tsx|Z. 17 (recipes-State), Z. 18 (selectedRecipeId), Z.19(amount), Z.24 (planner//setPage)|
