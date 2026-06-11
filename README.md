@@ -1,75 +1,28 @@
-# React + TypeScript + Vite
+# Projektname: Productionplaner
+**Team:** Leon Mayer (312056), Nicholas Plötz (307930), Florian Dunstheimer (307133)
+**Repository:** https://github.com/LeReyam/Satiscalc
+## Projektidee
+Ein Tool zur Generierung von einem Flowchart für Produktionsketten. Eigene Rezepte können hinzugefügt werden.
+## Kriterien-Zuordnung M1
+| Kriterium | Datei | Zeile / Hinweis |
+|---|---|---|
+| Semantische HTML-Struktur | index.html | Z. 9-54 |
+| Formular mit Labels | intro-html.html | Z. 21–31 |
+| Responsives Layout (Flexbox/Grid) | styles.css | Z. 22–61 |
+| Media Query | styles.css | Z. 149 |
+| URL-Struktur | index.html, about.html | Pfade: /, /about |
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Setup
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+|Kriterium| Datei | Zeile / Hinweis|
+|npm + Vite| package.json, vite.config.ts| Projekt-Root|
+|TypeScript aktiv genutzt| src/types.ts,src/components/RecipeCard.tsx| Z. 1–15 (Interface), Z. 8 (Props)
+|Komponentenzerlegung| src/components/ |RecipeList, RecipeCard, AddRecipeForm|
+|Props-Übergabe| src/App.tsx| Z. 30–45|
+|useState | src/App.tsx|Z. 12 (recipes-State), Z. 18 (filterState)|
+|useEffect | src/App.tsx | Z. 22 (localStorage laden)|
+|Durchgängige Nutzeraktion | src/components/AddRecipeForm.tsx Formular → Liste|
