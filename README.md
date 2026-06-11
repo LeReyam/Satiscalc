@@ -20,9 +20,9 @@ npm run dev
 
 |Kriterium| Datei | Zeile / Hinweis|
 |npm + Vite| package.json, vite.config.ts| Projekt-Root|
-|TypeScript aktiv genutzt| src/types.ts,src/components/RecipeCard.tsx| Z. 1–15 (Interface), Z. 8 (Props)
-|Komponentenzerlegung| src/components/ |RecipeList, RecipeCard, AddRecipeForm|
-|Props-Übergabe| src/App.tsx| Z. 30–45|
-|useState | src/App.tsx|Z. 12 (recipes-State), Z. 18 (filterState)|
-|useEffect | src/App.tsx | Z. 22 (localStorage laden)|
-|Durchgängige Nutzeraktion | src/components/AddRecipeForm.tsx Formular → Liste|
+|TypeScript aktiv genutzt| src/types.ts,src/components/costum-recipe-editor.tsx,| Z.1-35, Z. 8 (Props)|
+|Komponentenzerlegung| src/components/ |about,footer, header, login, password-reset,planner, productionplanner-graph, productionplanner-output, recipeselektor, register, passwordresetstage2, custom-recipe-editor, custom-recipetable|
+|Props-Übergabe| src/App.tsx| Z. 66–74, Z. 88-92, Z. 97-100|
+|useState | src/App.tsx|Z. 17 (recipes-State), Z. 18 (selectedRecipeId), Z.19(amount), Z.24 (planner//setPage)|
+|useEffect | src/App.tsx | --- |
+|Durchgängige Nutzeraktion | src/components/costum-recipetable, .../costum-recipe-editor, .../recipeselektor|Tabelle -> Formular -> Tabelle -> Liste|
