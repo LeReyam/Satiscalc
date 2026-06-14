@@ -10,7 +10,7 @@ header nav {
 
 header nav button {
   flex: 1;
-  padding: 12px;
+  padding: 25px;
 
   background-color: var(--color-accent);
   color: var(--color-text-dark);
@@ -25,3 +25,4 @@ header nav button {
 header nav button:hover {
   background-color: var(--color-accent-darker)
 }
+

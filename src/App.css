@@ -1,4 +1,5 @@
 :root {
+  margin: 7px;
   --color-bg: #0f172a;
   --color-card: #434547;
   --color-accent: #fd9800;
@@ -23,5 +24,4 @@ footer {
 
 main {
   flex: 1;
-  min-height: 0;
 }

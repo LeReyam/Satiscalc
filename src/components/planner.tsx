@@ -22,6 +22,7 @@ export function Planner({
   onRecipeChange,
   onAmountChange,
 }: PlannerProps) {
+
   return (
     <main className="planner-layout">
       <section className="planner-selector planner-card">
@@ -46,7 +47,14 @@ export function Planner({
       </section>
 
       <section className="planner-graph planner-card">
-        <Productionplanner_graph />
+        {!selectedRecipe ? (
+          <p>Bitte wähle zuerst ein Rezept aus.</p>
+        ) : (
+      <Productionplanner_graph
+        productId={selectedRecipe.products[0].item}
+        amountPerMinute={amount}
+      />
+      )}
       </section>
     </main>
   );
