@@ -5,8 +5,6 @@ import {
   Background,
   Controls,
   Position,
-
-  // NEU: React-Flow-State für bewegliche Nodes
   useNodesState,
   useEdgesState,
 
@@ -15,12 +13,8 @@ import {
 } from "@xyflow/react";
 
 import {
-  // NEU: nötig, damit neue Graph-Daten wieder in den State geschrieben werden
   useEffect,
-
-  // NEU: verhindert unnötiges Neuberechnen
   useMemo,
-
   type ReactNode,
 } from "react";
 
@@ -322,7 +316,6 @@ export function Productionplanner_graph({
   productId,
   amountPerMinute,
 }: ProductionplannerGraphProps) {
-  // NEU: Graph-Daten werden memoized berechnet
   const graph = useMemo(() => {
     if (!productId || amountPerMinute <= 0) {
       return {
@@ -343,16 +336,14 @@ export function Productionplanner_graph({
     };
   }, [productId, amountPerMinute]);
 
-  // NEU: React Flow verwaltet Nodes jetzt im State.
-  // Dadurch kann man sie per Drag & Drop bewegen.
+
   const [flowNodes, setFlowNodes, onNodesChange] =
     useNodesState(graph.nodes);
 
   const [flowEdges, setFlowEdges, onEdgesChange] =
     useEdgesState(graph.edges);
 
-  // NEU: Wenn Produkt oder Menge sich ändern,
-  // wird der Graph neu in den React-Flow-State geladen.
+ 
   useEffect(() => {
     setFlowNodes(graph.nodes);
     setFlowEdges(graph.edges);
@@ -373,6 +364,7 @@ export function Productionplanner_graph({
         edges={flowEdges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
+        minZoom={0.05}
       >
         <Background />
         <Controls />

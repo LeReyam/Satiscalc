@@ -1,9 +1,7 @@
 
-interface LoginProps {
-  setPage: (page: string) => void;
-}
+import { Link } from "react-router-dom";
 
-export function Login({ setPage }: LoginProps) {
+export function Login() {
   return (
     <main id="planner">
       <section>
@@ -16,15 +14,9 @@ export function Login({ setPage }: LoginProps) {
           <p>
             <input type="password" id="pwd" placeholder="Passwort" />
           </p>
-          <button type="button" onClick={()=> setPage("password-reset")}>
-            Reset-Password
-          </button>
-
+          <Link to="/password-reset">Reset-Password</Link>
           <button type="submit">LOGIN</button>
-
-          <button type="button" onClick={() => setPage("register")}>
-            Sign-up
-          </button>
+          <Link to="/register">Sign-up</Link>
         </form>
       </section>
     </main>

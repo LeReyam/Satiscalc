@@ -1,20 +1,27 @@
+import { useNavigate } from "react-router-dom";
 import "./header.css";
-type HeaderProps = {
-  setPage: (page: string) => void;
-};
 
-export function Header({ setPage }: HeaderProps) {
+export function Header() {
+  const navigate = useNavigate();
   return (
-    <header id="start">
-        <nav>
-          <button onClick={() => setPage("planner")}>Produktionsplanner</button>
+  <header id="start">
+    <nav>
+       <button onClick={() => navigate("/")}>
+                Planner
+            </button>
 
-          <button onClick={() => setPage("recipes")}>Custom-Rezepte</button>
+            <button onClick={() => navigate("/recipes")}>
+                Rezepte
+            </button>
 
-          <button onClick={() => setPage("about")}>About</button>
+            <button onClick={() => navigate("/about")}>
+                About
+            </button>
 
-          <button onClick={() => setPage("login")}>Login</button>
-        </nav>
-    </header>
+            <button onClick={() => navigate("/login")}>
+                Login
+            </button>
+    </nav>
+  </header>
   );
 }

@@ -1,10 +1,8 @@
 import { useState, type FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
-interface RegisterProps {
-  setPage: (page: string) => void;
-}
-
-export function Register({ setPage }: RegisterProps) {
+export function Register() {
+  const navigate = useNavigate();
   const [username, setUsername]  = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,7 +49,7 @@ export function Register({ setPage }: RegisterProps) {
     localStorage.setItem("newUser", JSON.stringify(accData));
 
     setSuccess(true);
-    setPage("login"); 
+    navigate("/login");
   }
 
   return (

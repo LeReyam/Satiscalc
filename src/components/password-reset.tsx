@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 export function Password_reset() {
   return (
     <section>
@@ -8,7 +8,7 @@ export function Password_reset() {
           <input type="text" placeholder="M.Mustermann@Muster.de" />
         </p>
         <button>Passwort zurücksetzen</button>
-        <a href="login.html">Zurück zum Login</a>
+        <Link to="/login">Zurück zum Login</Link>
       </form>
     </section>
   );
