@@ -10,7 +10,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Custom_recipetable from "./components/custom-recipetable";
 import Custom_recipe_editor from "./components/custom-recipe-editor";
-import { BackendTest } from "./components/about";
+//import { BackendTest } from "./components/about";
 
 type AppOutletContext = {
   recipes: Recipe[];
