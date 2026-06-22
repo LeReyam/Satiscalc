@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 
-export function Login() {
+export default function Login() {
   return (
     <main id="planner">
       <section>

@@ -1,5 +1,5 @@
 import "./footer.css"
-export function Footer() {
+export default function Footer() {
   return (
     <footer id="ende">
       <span>Ersteller: L. Mayer, N. Plötz, F. Dunstheimer</span>

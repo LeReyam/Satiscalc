@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./header.css";
 
-export function Header() {
+export default function Header() {
   const navigate = useNavigate();
   return (
   <header id="start">

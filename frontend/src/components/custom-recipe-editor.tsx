@@ -10,7 +10,7 @@ type CustomRecipeEditorProps = {
   onCancel: () => void;
 };
 
-export function Custom_recipe_editor({
+export default function Custom_recipe_editor({
   recipe,
   onSave,
   onCancel,

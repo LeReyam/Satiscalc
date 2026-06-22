@@ -10,7 +10,7 @@ type RecipeSelectorProps = {
   onAmountChange: (amount: number) => void;
 };
 
-export function Recipe_selector({
+export default function Recipe_selector({
   recipes,
   selectedRecipeId,
   amount,
@@ -31,7 +31,7 @@ export function Recipe_selector({
 
     return items.find((item) => item.id === firstProduct.item)?.name ?? recipe.name;
   }
-  
+
   return (
     <section className="recipe-selector">
       <form>

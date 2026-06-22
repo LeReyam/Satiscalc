@@ -1,9 +1,9 @@
 import "./planner.css";
 
 import type { Recipe } from "../types";
-import { Recipe_selector } from "./recipeselector";
-import { Productionplanner_output } from "./productionplanner-output";
-import { Productionplanner_graph } from "./productionplanner-graph";
+import Recipe_selector from "./recipeselector";
+import Productionplanner_output from "./productionplanner-output";
+import Productionplanner_graph from "./productionplanner-graph";
 
 type PlannerProps = {
   recipes: Recipe[];
@@ -14,7 +14,7 @@ type PlannerProps = {
   onAmountChange: (amount: number) => void;
 };
 
-export function Planner({
+export default function Planner({
   recipes,
   selectedRecipeId,
   amount,

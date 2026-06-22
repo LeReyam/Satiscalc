@@ -10,7 +10,7 @@ type CustomRecipetableProps = {
   onDeleteRecipe: (className: string) => void;
 };
 
-export function Custom_recipetable({
+export default function Custom_recipetable({
   recipes,
   onCreateRecipe,
   onEditRecipe,

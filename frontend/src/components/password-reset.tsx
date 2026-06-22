@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-export function Password_reset() {
+
+export default function Password_reset() {
   return (
     <section>
       <form id="selection">

@@ -312,7 +312,7 @@ function getLayoutedNodes(
   });
 }
 
-export function Productionplanner_graph({
+export default function Productionplanner_graph({
   productId,
   amountPerMinute,
 }: ProductionplannerGraphProps) {
@@ -343,7 +343,7 @@ export function Productionplanner_graph({
   const [flowEdges, setFlowEdges, onEdgesChange] =
     useEdgesState(graph.edges);
 
- 
+
   useEffect(() => {
     setFlowNodes(graph.nodes);
     setFlowEdges(graph.edges);

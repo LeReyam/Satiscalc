@@ -7,7 +7,7 @@ type ProductionplannerOutputProps = {
   amount: number;
 };
 
-export function Productionplanner_output({
+export default function Productionplanner_output({
   recipe,
   amount,
 }: ProductionplannerOutputProps) {
