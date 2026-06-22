@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function Register() {
+export default function Register() {
   const navigate = useNavigate();
   const [username, setUsername]  = useState("");
   const [email, setEmail] = useState("");
@@ -107,7 +107,7 @@ export function Register() {
             Registrieren
           </button>
 
-         
+
         </form>
       </section>
     </div>

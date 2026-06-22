@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import { Login } from "./components/login.tsx";
-import { Register } from "./components/register.tsx";
-import { Password_reset } from "./components/password-reset.tsx";
-import { About } from "./components/about.tsx";
+import Login from "./components/login.tsx";
+import Register  from "./components/register.tsx";
+import Password_reset from "./components/password-reset.tsx";
+import About from "./components/about.tsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

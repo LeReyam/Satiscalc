@@ -54,8 +54,7 @@ export default function Custom_recipe_editor({
     setErrorMessage("");
 
     const selectedOutputItem = items.find((item) => item.id === output);
-    const recipeName =
-      name.trim() || selectedOutputItem?.name || "Unbenanntes Rezept";
+    const recipeName = name.trim() || selectedOutputItem?.name || "Unbenanntes Rezept";
 
     const savedRecipe: Recipe = {
       className: recipe?.className ?? crypto.randomUUID(),
