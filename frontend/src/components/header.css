@@ -3,6 +3,13 @@ header {
   color: var(--color-text);
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+  color: var(--color-accent);
+  font-size: 60px;
+}
+
 header nav {
   display: flex;
   gap: 10px;

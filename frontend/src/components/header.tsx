@@ -5,6 +5,7 @@ export default function Header() {
   const navigate = useNavigate();
   return (
   <header id="start">
+    <h1>Satiscalc</h1>
     <nav>
        <button onClick={() => navigate("/")}>
                 Planner
