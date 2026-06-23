@@ -1,55 +1,55 @@
 [
-  { 
+  {
     "id": "Desc_OreIron_C",
-    "name": "Eisenerz" 
+    "name": "Eisenerz"
   },
   {
     "id": "Desc_OreCopper_C",
-    "name": "Kupfererz" 
+    "name": "Kupfererz"
   },
   {
     "id": "Desc_Stone_C",
-    "name": "Kalkstein" 
+    "name": "Kalkstein"
   },
   {
     "id": "Desc_Coal_C",
-    "name": "Kohle" 
+    "name": "Kohle"
   },
   {
     "id": "Desc_OreGold_C",
-    "name": "Cateriumerz" 
+    "name": "Cateriumerz"
   },
   {
     "id": "Desc_RawQuartz_C",
-    "name": "Rohquarz" 
+    "name": "Rohquarz"
   },
   {
     "id": "Desc_Sulfur_C",
-    "name": "Schwefel" 
+    "name": "Schwefel"
   },
   {
     "id": "Desc_OreBauxite_C",
-    "name": "Bauxit" 
+    "name": "Bauxit"
   },
   {
     "id": "Desc_OreUranium_C",
-    "name": "Uranerz" 
+    "name": "Uranerz"
   },
   {
     "id": "Desc_SAM_C",
-    "name": "S.A.M." 
+    "name": "S.A.M."
   },
   {
     "id": "Desc_LiquidOil_C",
-    "name": "Rohöl" 
+    "name": "Rohöl"
   },
   {
-    "id": "Desc_Water_C", 
-    "name": "Wasser" 
+    "id": "Desc_Water_C",
+    "name": "Wasser"
   },
-  { 
+  {
     "id": "Desc_NitrogenGas_C",
-    "name": "Stickstoffgas" 
+    "name": "Stickstoffgas"
     },
   {
     "id": "Desc_PackagedIonizedFuel_C",

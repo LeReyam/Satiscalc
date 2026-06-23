@@ -4,7 +4,8 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -12,26 +13,31 @@ datasource db {
 }
 
 model Item {
-  id   String @id
-  name String
+  id       String @id
+  name     String
+  iconPath String?
 }
 
 model Factory {
   id               String @id
   name             String
-  inputSlots       Int
-  outputSlots      Int
-  powerConsumption Float
+  iconPath         String?
+  inputSlots       Int?
+  outputSlots      Int?
+  powerConsumption Float?
 }
 
 model Recipe {
-  className    String @id
-  name         String
-  duration     Float
-  ingredients  Json
-  products     Json
-  producedIn   Json
+  className   String  @id
+  name        String
+  duration    Float
+
+  ingredients Json
+  products    Json
+  producedIn  Json
+
   customRecipe Boolean @default(false)
   inBuildGun   Boolean
-  alternate    Boolean @default(false)
+
+  alternate    Boolean?
 }

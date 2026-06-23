@@ -2,6 +2,7 @@
   {
     "id": "Desc_SmelterMk1_C",
     "name": "Schmelzofen",
+    "iconPath": "/icons/factories/IconDesc_SmelterMk1_256.png",
     "inputSlots": 1,
     "outputSlots": 1,
     "powerConsumption": 4
@@ -9,6 +10,7 @@
   {
     "id": "Desc_ConstructorMk1_C",
     "name": "Konstruktor",
+    "iconPath": "/icons/factories/IconDesc_ConstructorMk1_256.png",
     "inputSlots": 1,
     "outputSlots": 1,
     "powerConsumption": 4
@@ -16,6 +18,7 @@
   {
     "id": "Desc_AssemblerMk1_C",
     "name": "Fabrikator",
+    "iconPath": "/icons/factories/IconDesc_AssemblerMk1_256.png",
     "inputSlots": 2,
     "outputSlots": 1,
     "powerConsumption": 15
@@ -23,6 +26,7 @@
   {
     "id": "Desc_FoundryMk1_C",
     "name": "Gießerei",
+    "iconPath": "/icons/factories/IconDesc_Foundry_256.png",
     "inputSlots": 2,
     "outputSlots": 1,
     "powerConsumption": 16
@@ -30,6 +34,7 @@
   {
     "id": "Desc_ManufacturerMk1_C",
     "name": "Manufaktor",
+    "iconPath": "/icons/factories/IconDesc_Manufacturer_256.png",
     "inputSlots": 4,
     "outputSlots": 1,
     "powerConsumption": 55
@@ -37,6 +42,7 @@
   {
     "id": "Desc_OilRefinery_C",
     "name": "Raffinerie",
+    "iconPath": "/icons/factories/IconDesc_OilRefinery_256.png",
     "inputSlots": 2,
     "outputSlots": 2,
     "powerConsumption": 30
@@ -44,6 +50,7 @@
   {
     "id": "Desc_Blender_C",
     "name": "Mixer",
+    "iconPath": "/icons/factories/IconDesc_Blender_256.png",
     "inputSlots": 4,
     "outputSlots": 2,
     "powerConsumption": 75
@@ -51,6 +58,7 @@
   {
     "id": "Desc_Packager_C",
     "name": "Umfüllanlage",
+    "iconPath": "/icons/factories/IconDesc_Packager_256.png",
     "inputSlots": 2,
     "outputSlots": 2,
     "powerConsumption": 10

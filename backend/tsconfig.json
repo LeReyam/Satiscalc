@@ -1,12 +1,13 @@
 {
- "compilerOptions": {
+  "compilerOptions": {
     "resolveJsonModule": true,
     "target": "ES2022",
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
-    },
-    "include": ["src"]
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": ["src", "prisma"]
 }

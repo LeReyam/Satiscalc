@@ -7,14 +7,16 @@ export interface User {
  active: boolean;
 }
 
-export interface Factory {
-  id: string;
-  name: string;
-}
-
 export interface Item {
   id: string;
   name: string;
+  iconPath?: string | null;
+}
+
+export interface Factory {
+  id: string;
+  name: string;
+  iconPath?: string | null;
 }
 
 export interface RecipeItem {

@@ -5,20 +5,21 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch  src/server.ts",
-    "seed": "tsx prisma/seed.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:seed": "tsx prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.8.0",
     "@prisma/client": "^7.8.0",
     "better-sqlite3": "^12.11.1",
     "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "helmet": "^8.2.0",
+    "prisma": "^7.8.0"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",

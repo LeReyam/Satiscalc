@@ -12,6 +12,7 @@ export default defineConfig({
     proxy: {
       // Leite alle Anfragen, die mit /api beginnen, an Port 3000 weiter
       "/api": "http://localhost:3000",
+      "/icons": "http://localhost:3000",
     },
   },
 });
