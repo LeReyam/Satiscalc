@@ -1,17 +1,21 @@
 import "./custom-recipe-editor.css"
 import { useState } from "react";
-import type { Recipe } from "../types";
-import { items } from "../data/items";
-import { factories } from "../data/factories";
+import type { Recipe, Item, Factory } from "../types";
 
 type CustomRecipeEditorProps = {
   recipe?: Recipe;
+
+  items: Item[];
+  factories: Factory[];
+
   onSave: (recipe: Recipe) => void;
   onCancel: () => void;
 };
 
 export default function Custom_recipe_editor({
   recipe,
+  items,
+  factories,
   onSave,
   onCancel,
 }: CustomRecipeEditorProps) {

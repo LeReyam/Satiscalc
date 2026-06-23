@@ -33,7 +33,6 @@ type HealthResponse = {
 export function BackendTest() {
  const [status, setStatus] = useState<string>("Lade Backend...");
  useEffect(() => {
- // Dank Vite-Proxy brauchen wir hier kein http://localhost:3000!
  fetch("/api/health")
  .then((res) => res.json() as Promise<HealthResponse>)
  .then((data) => setStatus(data.message))

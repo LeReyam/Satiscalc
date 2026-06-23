@@ -1,10 +1,10 @@
 import "./custom-recipetable.css";
-import type { Recipe } from "../types";
-import { items } from "../data/items";
-import { factories } from "../data/factories";
+import type { Recipe, Item, Factory } from "../types";
 
 type CustomRecipetableProps = {
   recipes: Recipe[];
+  items: Item[];
+  factories: Factory[];
   onCreateRecipe: () => void;
   onEditRecipe: (className: string) => void;
   onDeleteRecipe: (className: string) => void;
@@ -12,6 +12,8 @@ type CustomRecipetableProps = {
 
 export default function Custom_recipetable({
   recipes,
+  items,
+  factories,
   onCreateRecipe,
   onEditRecipe,
   onDeleteRecipe,
