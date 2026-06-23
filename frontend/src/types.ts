@@ -31,4 +31,5 @@ export interface Recipe {
   producedIn: string[];
   customRecipe: boolean;
   inBuildGun: boolean;
+  alternate?: boolean;
 }

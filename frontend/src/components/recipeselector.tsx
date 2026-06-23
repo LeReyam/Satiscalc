@@ -49,6 +49,8 @@ export default function Recipe_selector({
             <option value="">Rezept auswählen</option>
 
             {[...recipes]
+              .filter((recipe) => !recipe.inBuildGun)
+              .filter((recipe) => !recipe.alternate)
               .sort((a, b) =>
                 getRecipeDisplayName(a).localeCompare(
                   getRecipeDisplayName(b),

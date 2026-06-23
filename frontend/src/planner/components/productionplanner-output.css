@@ -1,4 +1,7 @@
 .planner-output-content {
+     width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -32,6 +35,8 @@
 
 .planner-output-content table {
   width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
 }
 
@@ -43,6 +48,7 @@
 .planner-output-content td {
   padding: 0.6rem 0.8rem;
   text-align: left;
+  
 }
 
 .planner-output-content tbody tr:nth-child(even) {
@@ -78,3 +84,4 @@
     font-size: 0.9rem;
   }
 }
+

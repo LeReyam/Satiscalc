@@ -2,13 +2,15 @@ import "./productionplanner-graph.css";
 
 import {
   ReactFlow,
+  ReactFlowProvider,
   Background,
   Controls,
   useNodesState,
   useEdgesState,
+  useReactFlow,
 } from "@xyflow/react";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "@xyflow/react/dist/style.css";
 
@@ -18,29 +20,66 @@ type ProductionPlannerGraphProps = {
   graph: PlannerGraph;
 };
 
-export default function Productionplanner_graph({
+function ProductionplannerGraphContent({
   graph,
 }: ProductionPlannerGraphProps) {
   const [flowNodes, setFlowNodes, onNodesChange] = useNodesState(graph.nodes);
   const [flowEdges, setFlowEdges, onEdgesChange] = useEdgesState(graph.edges);
 
+  const [isReady, setIsReady] = useState(false);
+
+  const hasFittedView = useRef(false);
+
+  const { fitView } = useReactFlow();
+
   useEffect(() => {
+    setIsReady(false);
+    hasFittedView.current = false;
+
     setFlowNodes(graph.nodes);
     setFlowEdges(graph.edges);
-  }, [graph.nodes, graph.edges, setFlowNodes, setFlowEdges]);
+
+    requestAnimationFrame(() => {
+      if (hasFittedView.current) return;
+
+      fitView({
+        padding: 0.2,
+        duration: 0,
+        minZoom: 0.05,
+        maxZoom: 1,
+      });
+
+      hasFittedView.current = true;
+      setIsReady(true);
+    });
+  }, [graph, fitView, setFlowNodes, setFlowEdges]);
 
   return (
+    <ReactFlow
+      nodes={flowNodes}
+      edges={flowEdges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      minZoom={0.05}
+      style={{
+        opacity: isReady ? 1 : 0,
+        transition: "opacity 150ms ease",
+      }}
+    >
+      <Background />
+      <Controls />
+    </ReactFlow>
+  );
+}
+
+export default function Productionplanner_graph({
+  graph,
+}: ProductionPlannerGraphProps) {
+  return (
     <div className="production-graph">
-      <ReactFlow
-        nodes={flowNodes}
-        edges={flowEdges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        minZoom={0.05}
-      >
-        <Background />
-        <Controls />
-      </ReactFlow>
+      <ReactFlowProvider>
+        <ProductionplannerGraphContent graph={graph} />
+      </ReactFlowProvider>
     </div>
   );
 }
