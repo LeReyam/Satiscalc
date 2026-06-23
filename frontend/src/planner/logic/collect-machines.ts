@@ -6,7 +6,7 @@ import type {
 export function collectMachines(
   tree: ProductionPlanNode
 ): PlannerMachineRow[] {
-  const machines: PlannerMachineRow[] = [];
+  const machinesByFactory = new Map<string, PlannerMachineRow>();
 
   function walk(node: ProductionPlanNode) {
     if (
@@ -15,15 +15,21 @@ export function collectMachines(
       node.factoryName &&
       node.machines !== undefined
     ) {
-      machines.push({
-        recipeId: node.recipeId,
-        recipeName: node.recipeName,
-        factoryName: node.factoryName,
-        machines: node.machines,
-        outputItemId: node.itemId,
-        outputItemName: node.itemName,
-        outputAmountPerMinute: node.amountPerMinute,
-      });
+      const existingMachine = machinesByFactory.get(node.factoryName);
+
+      if (existingMachine) {
+        existingMachine.machines += node.machines;
+      } else {
+        machinesByFactory.set(node.factoryName, {
+          recipeId: node.recipeId,
+          recipeName: node.factoryName,
+          factoryName: node.factoryName,
+          machines: node.machines,
+          outputItemId: node.itemId,
+          outputItemName: node.itemName,
+          outputAmountPerMinute: node.amountPerMinute,
+        });
+      }
     }
 
     node.children.forEach(walk);
@@ -31,5 +37,5 @@ export function collectMachines(
 
   walk(tree);
 
-  return machines;
+  return Array.from(machinesByFactory.values());
 }

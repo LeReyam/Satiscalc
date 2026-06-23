@@ -54,8 +54,10 @@ export function collectIntermediateResources(
 ): PlannerResourceRow[] {
   const resources = new Map<string, PlannerResourceRow>();
 
-  function walk(node: ProductionPlanNode) {
-    if (!node.stopReason) {
+  function walk(node: ProductionPlanNode, isRoot = false) {
+    node.children.forEach((child) => walk(child));
+
+    if (!isRoot && !node.stopReason) {
       addResource(
         resources,
         node.itemId,
@@ -63,11 +65,9 @@ export function collectIntermediateResources(
         node.amountPerMinute
       );
     }
-
-    node.children.forEach(walk);
   }
 
-  walk(tree);
+  walk(tree, true);
 
   return Array.from(resources.values());
 }

@@ -72,7 +72,6 @@ export default function Productionplanner_output({
       <table>
         <thead>
           <tr>
-            <th>Rezept</th>
             <th>Fabrik</th>
             <th>Anzahl</th>
           </tr>
@@ -83,7 +82,6 @@ export default function Productionplanner_output({
             <tr
               key={`${machine.recipeId}-${machine.outputItemId}`}
             >
-              <td>{machine.recipeName}</td>
 
               <td>{machine.factoryName}</td>
 
