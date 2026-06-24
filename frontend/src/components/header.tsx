@@ -1,27 +1,45 @@
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import "./header.css";
 
 export default function Header() {
   const navigate = useNavigate();
+
+  const { user, isLoggedIn, logout } = useAuth();
+
+  function handleLogout() {
+    logout();
+    navigate("/");
+  }
+
   return (
-  <header id="start">
-    <nav>
-       <button onClick={() => navigate("/")}>
-                Planner
-            </button>
+    <header id="start">
+      <nav>
+        <button onClick={() => navigate("/")}>
+          Planner
+        </button>
 
-            <button onClick={() => navigate("/recipes")}>
-                Rezepte
-            </button>
+        <button onClick={() => navigate("/recipes")}>
+          Rezepte
+        </button>
 
-            <button onClick={() => navigate("/about")}>
-                About
-            </button>
+        <button onClick={() => navigate("/about")}>
+          About
+        </button>
 
-            <button onClick={() => navigate("/login")}>
-                Login
+        {!isLoggedIn ? (
+          <button onClick={() => navigate("/login")}>
+            Login
+          </button>
+        ) : (
+          <>
+
+            <button onClick={handleLogout}>
+              Logout
             </button>
-    </nav>
-  </header>
+          </>
+        )}
+      </nav>
+    </header>
   );
 }
