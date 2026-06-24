@@ -45,6 +45,7 @@
 .planner-graph {
   grid-column: 1;
   grid-row: 2;
+  color: var(--color-accent);
 }
 
 .planner-output::-webkit-scrollbar {

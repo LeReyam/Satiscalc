@@ -66,9 +66,11 @@ function App() {
     async function loadData() {
       try {
         setIsLoading(true);
+        await new Promise(resolve => setTimeout(resolve, 3000));
         setError(null);
 
-        
+
+
         const [
           loadedItems,
           loadedFactories,
@@ -237,7 +239,7 @@ export function RecipesPage() {
 }
 
 export function RecipeEditorPage() {
-  
+
   const { id } = useParams();
   const navigate = useNavigate();
 
