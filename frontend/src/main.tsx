@@ -8,6 +8,8 @@ import About from "./components/about.tsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import ProtectedRoute from "./components/ProtectedRoute.tsx";
+
 import App, {
   PlannerPage,
   RecipesPage,
@@ -30,11 +32,19 @@ const router = createBrowserRouter([
       },
       {
         path: "recipes/new",
-        element: <RecipeEditorPage />,
+        element: (
+        <ProtectedRoute>
+          <RecipeEditorPage />
+        </ProtectedRoute>
+        ),
       },
       {
         path: "recipes/:id",
-        element: <RecipeEditorPage />,
+        element: (
+          <ProtectedRoute>
+            <RecipeEditorPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "login",
