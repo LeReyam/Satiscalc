@@ -15,6 +15,7 @@ import {
   fetchItems,
   fetchRecipes,
   saveCustomRecipe,
+  deleteCustomRecipe,
 } from "./api/planner-api";
 
 import Planner from "./planner/components/planner";
@@ -39,7 +40,7 @@ type AppOutletContext = {
   handleCreateRecipe: () => void;
   handleSaveRecipe: (recipe: Recipe) => void;
   handleEditRecipe: (className: string) => void;
-  handleDeleteRecipe: (className: string) => void;
+  handleDeleteRecipe: (className: string) => Promise<void>;
 };
 
 function useAppData() {
@@ -138,13 +139,22 @@ function App() {
     navigate(`/recipes/${className}`);
   }
 
-  function handleDeleteRecipe(className: string) {
-    setRecipes((currentRecipes) =>
-      currentRecipes.filter(
-        (recipe) => recipe.className !== className
-      )
-    );
+  async function handleDeleteRecipe(className: string) {
+  if (!token) {
+    navigate("/login");
+    return;
   }
+
+  await deleteCustomRecipe(className, token);
+
+  setRecipes((currentRecipes) =>
+    currentRecipes.filter((recipe) => recipe.className !== className)
+  );
+
+  if (selectedRecipeId === className) {
+    setSelectedRecipeId("");
+  }
+}
 
   if (isLoading) {
     return (

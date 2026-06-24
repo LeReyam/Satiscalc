@@ -82,6 +82,39 @@ app.post("/api/recipes", requireAuth, async (req: AuthRequest, res) => {
   res.status(201).json(savedRecipe);
 });
 
+app.delete("/api/recipes/:className", requireAuth, async (req: AuthRequest, res) => {
+  const classNameParam = req.params.className;
+
+  if (Array.isArray(classNameParam)) {
+    return res.status(400).json({ error: "Ungültige Rezept-ID" });
+  }
+
+  const className = classNameParam;
+
+  const recipe = await prisma.recipe.findUnique({
+    where: { className },
+  });
+
+  if (!recipe) {
+    return res.status(404).json({ error: "Rezept nicht gefunden" });
+  }
+
+  if (!recipe.customRecipe) {
+    return res.status(403).json({ error: "Standard-Rezepte können nicht gelöscht werden" });
+  }
+
+  if (recipe.userId !== req.user!.id) {
+    return res.status(403).json({ error: "Du darfst dieses Rezept nicht löschen" });
+  }
+
+  await prisma.recipe.delete({
+    where: { className },
+  });
+
+  res.status(204).send();
+});
+
+
 app.get("/api/items", async (_req, res) => {
   const items = await prisma.item.findMany();
   res.json(items);
