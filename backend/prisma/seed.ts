@@ -52,7 +52,13 @@ async function main() {
     })),
   });
 
-  const recipeArray = Object.values(recipes).flat() as RecipeSeed[];
+  const recipeArray = (Object.values(recipes).flat() as RecipeSeed[]).filter(
+  (recipe) =>
+    recipe.name !== "N/A" &&
+    recipe.ingredients.length > 0 &&
+    recipe.products.length > 0 &&
+    recipe.producedIn.length > 0
+);
 
   await prisma.recipe.createMany({
     data: recipeArray.map((recipe) => ({
