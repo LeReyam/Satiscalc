@@ -46,3 +46,32 @@ export function requireAuth(
     return res.status(401).json({ error: "Token ungültig" });
   }
 }
+
+export function optionalAuth(
+  req: AuthRequest,
+  _res: Response,
+  next: NextFunction
+) {
+  const header = req.headers.authorization;
+
+  if (!header?.startsWith("Bearer ")) {
+    return next();
+  }
+
+  try {
+    const token = header.slice("Bearer ".length);
+    const payload = jwt.verify(token, JWT_SECRET) as {
+      id: number;
+      email: string;
+    };
+
+    req.user = {
+      id: payload.id,
+      email: payload.email,
+    };
+  } catch {
+    // ungültiger Token wird ignoriert
+  }
+
+  next();
+}

@@ -14,6 +14,7 @@ import {
   fetchFactories,
   fetchItems,
   fetchRecipes,
+  saveCustomRecipe,
 } from "./api/planner-api";
 
 import Planner from "./planner/components/planner";
@@ -21,6 +22,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Custom_recipetable from "./components/custom-recipetable";
 import Custom_recipe_editor from "./components/custom-recipe-editor";
+import { useAuth } from "./context/AuthContext";
 
 type AppOutletContext = {
   recipes: Recipe[];
@@ -46,6 +48,7 @@ function useAppData() {
 
 function App() {
   const navigate = useNavigate();
+  const { token } = useAuth();
 
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [items, setItems] = useState<Item[]>([]);
@@ -78,7 +81,7 @@ function App() {
         ] = await Promise.all([
           fetchItems(),
           fetchFactories(),
-          fetchRecipes(),
+          fetchRecipes(token),
         ]);
 
         setItems(loadedItems);
@@ -98,27 +101,34 @@ function App() {
     }
 
     loadData();
-  }, []);
+  }, [token]);
 
-  function handleSaveRecipe(recipe: Recipe) {
-    setRecipes((currentRecipes) => {
-      const recipeExists = currentRecipes.some(
-        (currentRecipe) => currentRecipe.className === recipe.className
-      );
-
-      if (recipeExists) {
-        return currentRecipes.map((currentRecipe) =>
-          currentRecipe.className === recipe.className
-            ? recipe
-            : currentRecipe
-        );
-      }
-
-      return [...currentRecipes, recipe];
-    });
-
-    navigate("/recipes");
+  async function handleSaveRecipe(recipe: Recipe) {
+  if (!token) {
+    navigate("/login");
+    return;
   }
+
+  const savedRecipe = await saveCustomRecipe(recipe, token);
+
+  setRecipes((currentRecipes) => {
+    const recipeExists = currentRecipes.some(
+      (currentRecipe) => currentRecipe.className === savedRecipe.className
+    );
+
+    if (recipeExists) {
+      return currentRecipes.map((currentRecipe) =>
+        currentRecipe.className === savedRecipe.className
+          ? savedRecipe
+          : currentRecipe
+      );
+    }
+
+    return [...currentRecipes, savedRecipe];
+  });
+
+  navigate("/recipes");
+}
 
   function handleCreateRecipe() {
     navigate("/recipes/new");
