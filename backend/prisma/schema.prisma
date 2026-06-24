@@ -40,4 +40,15 @@ model Recipe {
   inBuildGun   Boolean
 
   alternate    Boolean?
+
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  username     String
+  email        String   @unique
+  passwordHash String
+  recipes      Recipe[]
 }

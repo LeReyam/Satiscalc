@@ -11,3 +11,6 @@ Ein Tool zur Generierung von einem Flowchart für Produktionsketten. Eigene Reze
 | Responsives Layout (Flexbox/Grid) | styles.css | Z. 22–61 |
 | Media Query | styles.css | Z. 149 |
 | URL-Struktur | index.html, about.html | Pfade: /, /about |
+
+
+Command Generate database: npx prisma generate
