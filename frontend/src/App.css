@@ -1,5 +1,4 @@
 :root {
-  margin: 7px;
   --color-bg: #0f172a;
   --color-card: #434547;
   --color-accent: #fd9800;
@@ -11,7 +10,8 @@
 
 html,
 body,
-#root {
+#root
+ {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -25,4 +25,10 @@ footer {
 main {
   flex: 1;
   color: var(--color-accent);
+}
+
+.app {
+  min-height: 100%;
+  padding: 7px;
+  box-sizing: border-box;
 }
