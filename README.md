@@ -61,7 +61,7 @@ mail: test@test.de passwort: 123456 ( dieser user wurde "hart" in die datenbank 
 | Geschützte Frontend-Route                | frontend/src/components/ProtectedRoute.tsx, frontend/src/main.tsx | Z. 4–12, Z. 34–47                                |
 | Architektur SPA + API-Backend            | README.md                                                         | Abschnitt „Architektur“ ergänzen                 |
 | SSR/SSG-Begründung                       | README.md                                                         | Ein Satz unter Architektur ergänzen              |
-| Tests                                    | —                                                                 | Noch keine Tests gefunden / ggf. ergänzen        |
+| Tests                                    | about.test.tsx, planner.test.tsx                                  | Z.14-44, Z.70-126								  |
 
 
                   Browser
