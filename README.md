@@ -38,7 +38,9 @@ npm run db:seed
 ```
 
 ### Test-User
-mail: test@test.de passwort: 123456 ( dieser user wurde "hart" in die datenbank eingetragen, über die console und bevor wir die beschränkung auf 8 zeichen beim passwort wieder eingebaut hatten.)
+mail: test@test.de
+passwort: 123456
+( dieser user wurde "hart" in die datenbank eingetragen, über die console und bevor wir die beschränkung auf 8 zeichen beim passwort wieder eingebaut hatten.)
 
 
 
