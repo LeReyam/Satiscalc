@@ -117,7 +117,7 @@ export default function Register() {
           </button>
 
           <p>
-            Schon registriert? <Link to="/login">Zum Login</Link>
+            <Link to="/login">Schon registriert? Zum Login</Link>
           </p>
         </form>
       </section>
