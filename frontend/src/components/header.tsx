@@ -5,7 +5,7 @@ import "./header.css";
 export default function Header() {
   const navigate = useNavigate();
 
-  const { user, isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, logout } = useAuth();
 
   function handleLogout() {
     logout();

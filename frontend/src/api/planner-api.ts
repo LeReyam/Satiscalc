@@ -20,12 +20,51 @@ export async function fetchFactories(): Promise<Factory[]> {
   return response.json();
 }
 
-export async function fetchRecipes(): Promise<Recipe[]> {
-  const response = await fetch("/api/recipes");
+export async function fetchRecipes(token?: string | null): Promise<Recipe[]> {
+  const response = await fetch("/api/recipes", {
+    headers: token
+      ? { Authorization: `Bearer ${token}` }
+      : {},
+  });
 
   if (!response.ok) {
     throw new Error("Rezepte konnten nicht geladen werden.");
   }
 
   return response.json();
+}
+
+export async function saveCustomRecipe(
+  recipe: Recipe,
+  token: string
+): Promise<Recipe> {
+  const response = await fetch("/api/recipes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(recipe),
+  });
+
+  if (!response.ok) {
+    throw new Error("Custom-Rezept konnte nicht gespeichert werden.");
+  }
+
+  return response.json();
+}
+export async function deleteCustomRecipe(
+  className: string,
+  token: string
+): Promise<void> {
+  const response = await fetch(`/api/recipes/${encodeURIComponent(className)}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Custom-Rezept konnte nicht gelöscht werden.");
+  }
 }

@@ -14,6 +14,8 @@ import {
   fetchFactories,
   fetchItems,
   fetchRecipes,
+  saveCustomRecipe,
+  deleteCustomRecipe,
 } from "./api/planner-api";
 
 import Planner from "./planner/components/planner";
@@ -21,6 +23,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Custom_recipetable from "./components/custom-recipetable";
 import Custom_recipe_editor from "./components/custom-recipe-editor";
+import { useAuth } from "./context/AuthContext";
 
 type AppOutletContext = {
   recipes: Recipe[];
@@ -37,7 +40,7 @@ type AppOutletContext = {
   handleCreateRecipe: () => void;
   handleSaveRecipe: (recipe: Recipe) => void;
   handleEditRecipe: (className: string) => void;
-  handleDeleteRecipe: (className: string) => void;
+  handleDeleteRecipe: (className: string) => Promise<void>;
 };
 
 function useAppData() {
@@ -46,6 +49,7 @@ function useAppData() {
 
 function App() {
   const navigate = useNavigate();
+  const { token } = useAuth();
 
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [items, setItems] = useState<Item[]>([]);
@@ -66,9 +70,11 @@ function App() {
     async function loadData() {
       try {
         setIsLoading(true);
+        await new Promise(resolve => setTimeout(resolve, 3000));
         setError(null);
 
-        
+
+
         const [
           loadedItems,
           loadedFactories,
@@ -76,7 +82,7 @@ function App() {
         ] = await Promise.all([
           fetchItems(),
           fetchFactories(),
-          fetchRecipes(),
+          fetchRecipes(token),
         ]);
 
         setItems(loadedItems);
@@ -96,27 +102,34 @@ function App() {
     }
 
     loadData();
-  }, []);
+  }, [token]);
 
-  function handleSaveRecipe(recipe: Recipe) {
-    setRecipes((currentRecipes) => {
-      const recipeExists = currentRecipes.some(
-        (currentRecipe) => currentRecipe.className === recipe.className
-      );
-
-      if (recipeExists) {
-        return currentRecipes.map((currentRecipe) =>
-          currentRecipe.className === recipe.className
-            ? recipe
-            : currentRecipe
-        );
-      }
-
-      return [...currentRecipes, recipe];
-    });
-
-    navigate("/recipes");
+  async function handleSaveRecipe(recipe: Recipe) {
+  if (!token) {
+    navigate("/login");
+    return;
   }
+
+  const savedRecipe = await saveCustomRecipe(recipe, token);
+
+  setRecipes((currentRecipes) => {
+    const recipeExists = currentRecipes.some(
+      (currentRecipe) => currentRecipe.className === savedRecipe.className
+    );
+
+    if (recipeExists) {
+      return currentRecipes.map((currentRecipe) =>
+        currentRecipe.className === savedRecipe.className
+          ? savedRecipe
+          : currentRecipe
+      );
+    }
+
+    return [...currentRecipes, savedRecipe];
+  });
+
+  navigate("/recipes");
+}
 
   function handleCreateRecipe() {
     navigate("/recipes/new");
@@ -126,13 +139,22 @@ function App() {
     navigate(`/recipes/${className}`);
   }
 
-  function handleDeleteRecipe(className: string) {
-    setRecipes((currentRecipes) =>
-      currentRecipes.filter(
-        (recipe) => recipe.className !== className
-      )
-    );
+  async function handleDeleteRecipe(className: string) {
+  if (!token) {
+    navigate("/login");
+    return;
   }
+
+  await deleteCustomRecipe(className, token);
+
+  setRecipes((currentRecipes) =>
+    currentRecipes.filter((recipe) => recipe.className !== className)
+  );
+
+  if (selectedRecipeId === className) {
+    setSelectedRecipeId("");
+  }
+}
 
   if (isLoading) {
     return (
@@ -237,7 +259,7 @@ export function RecipesPage() {
 }
 
 export function RecipeEditorPage() {
-  
+
   const { id } = useParams();
   const navigate = useNavigate();
 

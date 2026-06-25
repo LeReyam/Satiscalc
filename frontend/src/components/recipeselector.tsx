@@ -49,6 +49,10 @@ export default function Recipe_selector({
             <option value="">Rezept auswählen</option>
 
             {[...recipes]
+              .filter((recipe) => recipe.name !== "N/A")
+              .filter((recipe) => recipe.ingredients.length > 0)
+              .filter((recipe) => recipe.products.length > 0)
+              .filter((recipe) => recipe.producedIn.length > 0)
               .filter((recipe) => !recipe.inBuildGun)
               .filter((recipe) => !recipe.alternate)
               .sort((a, b) =>

@@ -1,115 +1,126 @@
 import { useState, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Register() {
   const navigate = useNavigate();
-  const [username, setUsername]  = useState("");
+  const { login } = useAuth();
+
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  function validateInput(): boolean {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     setError("");
 
     if (!username || !email || !password || !passwordRepeat) {
-      setError("Alle Felder ausfüllen!!!");
-      return false;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Ungültige E-Mail-Adresse.");
-      return false;
-    }
-
-    if (password.length < 8) {
-      setError("Mindestlänge 8 Zeichen!");
-      return false;
-    }
-
-    if (password !== passwordRepeat) {
-      setError("Passwort und Wiederholung müssen übereinstimmen!");
-      return false;
-    }
-
-    return true;
-  }
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    const valid = validateInput();
-    if (!valid) {
-      setSuccess(false);
+      setError("Bitte alle Felder ausfüllen.");
       return;
     }
 
-    const accData = { username, email, password };
-    localStorage.setItem("newUser", JSON.stringify(accData));
+    if (password.length < 8) {
+      setError("Das Passwort muss mindestens 8 Zeichen lang sein.");
+      return;
+    }
 
-    setSuccess(true);
-    navigate("/login");
+    if (password !== passwordRepeat) {
+      setError("Die Passwörter stimmen nicht überein.");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error ?? "Registrierung fehlgeschlagen");
+      }
+
+      login(data.token, data.user);
+      navigate("/");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Registrierung fehlgeschlagen");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
-    <div title="planner">
+    <main id="planner">
       <section>
-        <form title="selection" onSubmit={handleSubmit}>
-          <label title="username">Username:</label>
-          <p>
-            <input
-              type="text"
-              placeholder="M.Mustermann"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </p>
+        <form id="selection" onSubmit={handleSubmit}>
+          <label>
+            Username:
+            <p>
+              <input
+                type="text"
+                placeholder="M.Mustermann"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </p>
+          </label>
 
-          <label title="E-Mail">E-Mail:</label>
-          <p>
-            <input
-              type="email"
-              placeholder="M.Mustermann@Muster.de"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </p>
+          <label>
+            E-Mail:
+            <p>
+              <input
+                type="email"
+                placeholder="M.Mustermann@Muster.de"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </p>
+          </label>
 
-          <label title="password">Passwort:</label>
-          <p>
-            <input
-              type="password"
-              placeholder="Passwort"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </p>
+          <label>
+            Passwort:
+            <p>
+              <input
+                type="password"
+                placeholder="Passwort"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </p>
+          </label>
 
-          <label title="password1">Passwort wiederholen:</label>
-          <p>
-            <input
-              type="password"
-              placeholder="Passwort"
-              value={passwordRepeat}
-              onChange={(e) => setPasswordRepeat(e.target.value)}
-            />
-          </p>
+          <label>
+            Passwort wiederholen:
+            <p>
+              <input
+                type="password"
+                placeholder="Passwort wiederholen"
+                value={passwordRepeat}
+                onChange={(e) => setPasswordRepeat(e.target.value)}
+              />
+            </p>
+          </label>
 
           {error && <p style={{ color: "red" }}>{error}</p>}
-          {success && (
-            <p style={{ color: "green" }}>
-              Registrierung erfolgreich! Weiterleitung...
-            </p>
-          )}
 
-          <button type="submit">
-            Registrieren
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Wird registriert..." : "Registrieren"}
           </button>
 
-
+          <p>
+            Schon registriert? <Link to="/login">Zum Login</Link>
+          </p>
         </form>
       </section>
-    </div>
+    </main>
   );
 }
