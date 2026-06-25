@@ -42,11 +42,43 @@ mail: test@test.de passwort: 123456 ( dieser user wurde "hart" in die datenbank 
 
 
 
-| Kriterium | Datei | Zeile / Hinweis |
-|---|---|---|
-| Semantische HTML-Struktur | index.html | Z. 9-54 |
-| Formular mit Labels | intro-html.html | Z. 21–31 |
-| Responsives Layout (Flexbox/Grid) | styles.css | Z. 22–61 |
-| Media Query | styles.css | Z. 149 |
-| URL-Struktur | index.html, about.html | Pfade: /, /about |
+## Kriterien-Zuordnung M3
+
+| Kriterium                                | Datei                                                             | Zeile / Hinweis                                  |
+| ---------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------ |
+| React Router: 2–3 Routen                 | frontend/src/main.tsx                                             | Z. 20–71                                         |
+| Navigation ohne `window.location`        | frontend/src/main.tsx, frontend/src/App.tsx                       | `RouterProvider`, `ProtectedRoute`, `navigate()` |
+| REST-Datenfetching GET                   | frontend/src/api/planner-api.ts                                   | Z. 3–35                                          |
+| REST schreibend POST / DELETE            | frontend/src/api/planner-api.ts                                   | Z. 37–70                                         |
+| Ladezustand sichtbar                     | frontend/src/App.tsx                                              | Z. 62–64, Z. 159–168                             |
+| Fehlerzustand sichtbar                   | frontend/src/App.tsx                                              | Z. 91–100, Z. 171–181                            |
+| Geteilter State / Context                | frontend/src/context/AuthContext.tsx                              | Z. 17–60                                         |
+| Backend mit Express                      | backend/src/server.ts                                             | Z. 10–19, Z. 20–130                              |
+| Eigene API-Endpunkte                     | backend/src/server.ts                                             | `/api/recipes`, `/api/items`, `/api/factories`   |
+| Datenbank / Prisma / SQLite              | backend/prisma/schema.prisma                                      | Z. 11–13, Z. 15–54                               |
+| Authentifizierung: Login & Registrierung | backend/src/routes/auth.ts                                        | Z. 8–60                                          |
+| JWT / geschützte Endpunkte               | backend/src/auth.ts, backend/src/server.ts                        | `requireAuth`, geschützte POST/DELETE-Routen     |
+| Geschützte Frontend-Route                | frontend/src/components/ProtectedRoute.tsx, frontend/src/main.tsx | Z. 4–12, Z. 34–47                                |
+| Architektur SPA + API-Backend            | README.md                                                         | Abschnitt „Architektur“ ergänzen                 |
+| SSR/SSG-Begründung                       | README.md                                                         | Ein Satz unter Architektur ergänzen              |
+| Tests                                    | —                                                                 | Noch keine Tests gefunden / ggf. ergänzen        |
+
+
+                  Browser
+                     │
+                     ▼
+          React Single Page Application
+      (Vite + React Router + Context API)
+                     │
+              HTTP (REST / JSON)
+                     │
+                     ▼
+          Node.js + Express Backend
+                     │
+             Prisma ORM / REST API
+                     │
+                     ▼
+              SQLite-Datenbank
+
+Server Side Rendering (SSR) oder Static Site Generation (SSG) sind für dieses Projekt nicht notwendig, da es sich um eine interaktive, authentifizierte Single-Page-Application handelt, deren Inhalte dynamisch aus dem eigenen Backend geladen werden und keine SEO-optimierten statischen Seiten benötigt werden.
 
