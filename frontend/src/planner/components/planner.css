@@ -1,3 +1,10 @@
+#planner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 7px); /* oder Navbar-Höhe abziehen */
+}
+
 .planner-layout {
   flex: 1;
   min-height: 0;
