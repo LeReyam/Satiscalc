@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 7px); /* oder Navbar-Höhe abziehen */
+    overflow: visible;
 }
 
 .planner-layout {
@@ -29,7 +30,7 @@
 
   min-width: 0;
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .planner-selector {

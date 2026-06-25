@@ -1,4 +1,5 @@
 import "./recipeselector.css";
+import IconSelect from "./icon-select";
 import type { Item, Recipe } from "../types";
 
 type RecipeSelectorProps = {
@@ -40,15 +41,11 @@ export default function Recipe_selector({
         <div className="form-row">
           <label htmlFor="rezept">Wähle das Rezept:</label>
 
-          <select
-            name="rezept"
-            id="rezept"
+          <IconSelect
             value={selectedRecipeId}
-            onChange={(event) => onRecipeChange(event.target.value)}
-          >
-            <option value="">Rezept auswählen</option>
-
-            {[...recipes]
+            placeholder="Rezept auswählen"
+            onChange={onRecipeChange}
+            options={[...recipes]
               .filter((recipe) => recipe.name !== "N/A")
               .filter((recipe) => recipe.ingredients.length > 0)
               .filter((recipe) => recipe.products.length > 0)
@@ -56,17 +53,19 @@ export default function Recipe_selector({
               .filter((recipe) => !recipe.inBuildGun)
               .filter((recipe) => !recipe.alternate)
               .sort((a, b) =>
-                getRecipeDisplayName(a).localeCompare(
-                  getRecipeDisplayName(b),
-                  "de"
-                )
+                getRecipeDisplayName(a).localeCompare(getRecipeDisplayName(b), "de")
               )
-              .map((recipe) => (
-                <option key={recipe.className} value={recipe.className}>
-                  {getRecipeDisplayName(recipe)}
-                </option>
-              ))}
-          </select>
+              .map((recipe) => {
+                const firstProduct = recipe.products[0];
+                const item = items.find((item) => item.id === firstProduct?.item);
+
+                return {
+                  value: recipe.className,
+                  label: getRecipeDisplayName(recipe),
+                  iconPath: item?.iconPath,
+                };
+              })}
+          />
         </div>
 
         <div className="form-row">

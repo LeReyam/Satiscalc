@@ -1,0 +1,82 @@
+.icon-select-menu {
+    border-radius: 8px;
+    overflow: hidden;      /* schneidet die Ecken ab */
+    background: #111827;
+}
+
+.icon-select-scroll {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.icon-select {
+  position: relative;
+  overflow: visible;
+}
+
+.icon-select-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+
+.icon-select {
+  position: relative;
+  width: auto;
+}
+
+.icon-select-button {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon-select-content,
+.icon-select-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-select-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.icon-select-menu {
+  position: absolute;
+  z-index: 50;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 4px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: var(--color-bg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.icon-select-option {
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.icon-select-option:hover {
+  background: var(--color-card);
+}

@@ -4,6 +4,28 @@
   align-items: center;
 }
 
+.custom_recipe_editor .icon-select {
+  width: 260px;
+}
+
+.custom_recipe_editor .icon-select-button {
+  width: 260px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #475569;
+  font-size: 1rem;
+}
+
+.custom_recipe_editor .icon-select-menu {
+  z-index: 9999;
+}
+
+.custom_recipe_editor .error-field .icon-select-button {
+  border: 2px solid #ef4444;
+}
+
 .custom_recipe_editor section {
   display: flex;
   flex-direction: column;
@@ -82,7 +104,9 @@
   }
 
   .custom_recipe_editor select,
-  .custom_recipe_editor input {
+  .custom_recipe_editor input,
+  .custom_recipe_editor .icon-select,
+  .custom_recipe_editor .icon-select-button {
     width: 100%;
   }
 }

@@ -1,6 +1,7 @@
 .recipe-selector {
   color: var(--color-accent);
   height: 100%;
+  overflow: visible;
 }
 
 .recipe-selector form {

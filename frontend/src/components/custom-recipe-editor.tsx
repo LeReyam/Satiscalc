@@ -1,4 +1,5 @@
 import "./custom-recipe-editor.css"
+import IconSelect from "./icon-select";
 import { useState } from "react";
 import type { Recipe, Item, Factory } from "../types";
 
@@ -99,18 +100,17 @@ export default function Custom_recipe_editor({
           />
 
           <label>Eingabe:</label>
-          <select
+          <IconSelect
             className={errors.input ? "error-field" : ""}
             value={input}
-            onChange={(event) => setInput(event.target.value)}
-          >
-            <option value="">Eingabe wählen</option>
-            {items.map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.name}
-              </option>
-            ))}
-          </select>
+            placeholder="Eingabe wählen"
+            onChange={setInput}
+            options={items.map((item) => ({
+              value: item.id,
+              label: item.name,
+              iconPath: item.iconPath,
+            }))}
+          />
 
           <input
             type="number"
@@ -121,18 +121,17 @@ export default function Custom_recipe_editor({
           />
 
           <label>Ausgabe:</label>
-          <select
+          <IconSelect
             className={errors.output ? "error-field" : ""}
             value={output}
-            onChange={(event) => setOutput(event.target.value)}
-          >
-            <option value="">Ausgabe wählen</option>
-            {items.map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.name}
-              </option>
-            ))}
-          </select>
+            placeholder="Ausgabe wählen"
+            onChange={setOutput}
+            options={items.map((item) => ({
+              value: item.id,
+              label: item.name,
+              iconPath: item.iconPath,
+            }))}
+          />
 
           <input
             type="number"
@@ -143,18 +142,17 @@ export default function Custom_recipe_editor({
           />
 
           <label>Fabrik:</label>
-          <select
+          <IconSelect
             className={errors.machine ? "error-field" : ""}
             value={machine}
-            onChange={(event) => setMachine(event.target.value)}
-          >
-            <option value="">Fabrik wählen</option>
-            {factories.map((factory) => (
-              <option key={factory.id} value={factory.id}>
-                {factory.name}
-              </option>
-            ))}
-          </select>
+            placeholder="Fabrik wählen"
+            onChange={setMachine}
+            options={factories.map((factory) => ({
+              value: factory.id,
+              label: factory.name,
+              iconPath: factory.iconPath,
+            }))}
+          />
 
           <label>Dauer in Sekunden:</label>
           <input
