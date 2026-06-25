@@ -1,0 +1,78 @@
+#selection {
+  background-color: var(--color-card);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Labels */
+#selection label {
+  font-weight: bold;
+}
+
+/* Standardabstände entfernen */
+#selection p {
+  margin: 0.4rem 0 0;
+}
+
+/* Eingabefelder */
+#selection input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-text-dark);
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+#selection input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+/* Button */
+#selection button {
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#selection button:hover:not(:disabled) {
+  background-color: var(--color-accent-darker);
+  color: var(--color-text);
+}
+
+#selection button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Links */
+#selection a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+#selection a:hover {
+  text-decoration: underline;
+}
+
+/* Fehlermeldung */
+#selection p[style] {
+  margin: 0;
+  font-weight: bold;
+}

@@ -70,7 +70,7 @@ function App() {
     async function loadData() {
       try {
         setIsLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        //await new Promise(resolve => setTimeout(resolve, 3000));
         setError(null);
 
 
