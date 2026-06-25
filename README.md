@@ -80,5 +80,5 @@ mail: test@test.de passwort: 123456 ( dieser user wurde "hart" in die datenbank 
                      ▼
               SQLite-Datenbank
 
-Server Side Rendering (SSR) oder Static Site Generation (SSG) sind für dieses Projekt nicht notwendig, da es sich um eine interaktive, authentifizierte Single-Page-Application handelt, deren Inhalte dynamisch aus dem eigenen Backend geladen werden und keine SEO-optimierten statischen Seiten benötigt werden.
+Server Side Rendering (SSR) oder Static Site Generation (SSG) sind hier nicht notwendig, da es sich um eine interaktive, authentifizierte Single-Page-Application handelt, deren Inhalte dynamisch aus dem eigenen Backend geladen werden.
 
