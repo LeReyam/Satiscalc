@@ -1,129 +1,204 @@
-// planner.test.tsx
-import { describe, it, expect, vi } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
-import Planner from "./planner";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import "@testing-library/jest-dom";
 
+import Planner from "./planner";
+import { calculateProductionPlan } from "../logic/calculate-production-plan";
+import { buildGraph } from "../logic/build-graph";
 import type { Factory, Item, Recipe } from "../../types";
 
-// ─── Fixtures ────────────────────────────────────────────────────────────────
+// --- Mocks für Logik-Funktionen ---
+vi.mock("../logic/calculate-production-plan", () => ({
+  calculateProductionPlan: vi.fn(),
+}));
 
-const items: Item[] = [
-  { id: "iron-plate", name: "Eisenplatte" },
-  { id: "iron-ore",   name: "Eisenerz"   },
-];
+vi.mock("../logic/build-graph", () => ({
+  buildGraph: vi.fn(),
+}));
 
-const recipes: Recipe[] = [
-  {
-    className: "recipe-iron-plate",
-    name: "Eisenplatten herstellen",
-    duration: 2,
-    ingredients: [{ item: "iron-ore", amount: 30 }],
-    products:    [{ item: "iron-plate", amount: 30 }],
-    producedIn: ["smelter"],
-    customRecipe: false,
-    inBuildGun: false,
-  },
-];
-
-const factories: Factory[] = [
-  { id: "smelter", name: "Schmelzofen" },
-];
-
-// ─── Mocks ───────────────────────────────────────────────────────────────────
-
+// --- Mocks für Kind-Komponenten ---
 vi.mock("../../components/recipeselector", () => ({
-  default: ({ selectedRecipeId, amount, onRecipeChange, onAmountChange }: {
-    selectedRecipeId: string;
-    amount: number;
-    onRecipeChange: (id: string) => void;
-    onAmountChange: (n: number) => void;
-  }) => (
-    <div>
-      <select
-        aria-label="Rezept"
-        value={selectedRecipeId}
-        onChange={(e) => onRecipeChange(e.target.value)}
-      >
-        <option value="">-- wähle --</option>
-        <option value="recipe-iron-plate">Eisenplatten</option>
-      </select>
-      <input
-        aria-label="Menge"
-        type="number"
-        value={amount}
-        onChange={(e) => onAmountChange(Number(e.target.value))}
-      />
+  default: (props: any) => (
+    <div data-testid="recipe-selector">
+      <button onClick={() => props.onRecipeChange("recipe-2")}>
+        change-recipe
+      </button>
+      <button onClick={() => props.onAmountChange(42)}>change-amount</button>
     </div>
   ),
 }));
 
 vi.mock("./productionplanner-output", () => ({
-  default: () => <div>Produktionsplan Ausgabe</div>,
+  default: (props: any) => (
+    <div data-testid="planner-output">{JSON.stringify(props.plan)}</div>
+  ),
 }));
 
 vi.mock("./productionplanner-graph", () => ({
-  default: () => <div>Produktionsgraph</div>,
+  default: (props: any) => (
+    <div data-testid="planner-graph">{JSON.stringify(props.graph)}</div>
+  ),
 }));
 
-// ─── Tests ───────────────────────────────────────────────────────────────────
+const mockRecipe: Recipe = {
+  className: "recipe1",
+  name: "Iron Unsmelting",
+  duration: 2,
+  ingredients: [{ item: "iron_plate", amount: 1 }],
+  products: [{ item: "iron_ore", amount: 1 }],
+  producedIn: ["smelter"],
+  customRecipe: true,
+  inBuildGun: false,
+};
+const mockItems: Item[] = [];
+const mockFactories: Factory[] = [];
+const mockRecipes: Recipe[] = [mockRecipe];
 
-describe("Planner Komponente", () => {
+const baseProps = {
+  recipes: mockRecipes,
+  items: mockItems,
+  factories: mockFactories,
+  selectedRecipeId: "recipe1",
+  amount: 10,
+  onRecipeChange: vi.fn(),
+  onAmountChange: vi.fn(),
+};
 
-  it("zeigt Platzhaltertext wenn kein Rezept ausgewaehlt ist", () => {
-    render(                                                        // Arrange
-      <Planner
-        recipes={recipes}
-        items={items}
-        factories={factories}
-        selectedRecipeId=""
-        amount={0}
-        selectedRecipe={undefined}
-        onRecipeChange={vi.fn()}
-        onAmountChange={vi.fn()}
-      />
-    );
-    const platzhalter = screen.getAllByText("Bitte wähle zuerst ein Rezept aus.");
-    expect(platzhalter).toHaveLength(2);                           // Assert
+describe("<Planner />", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
   });
 
-  it("zeigt Ausgabe und Graph wenn ein Rezept ausgewaehlt ist", () => {
-    render(                                                        // Arrange
-      <Planner
-        recipes={recipes}
-        items={items}
-        factories={factories}
-        selectedRecipeId="recipe-iron-plate"
-        amount={30}
-        selectedRecipe={recipes[0]}
-        onRecipeChange={vi.fn()}
-        onAmountChange={vi.fn()}
-      />
+  it("zeigt in Output- und Graph-Bereich den Platzhaltertext, solange kein Rezept ausgewählt ist", () => {
+    render(<Planner {...baseProps} selectedRecipe={undefined} />);
+
+    expect(calculateProductionPlan).not.toHaveBeenCalled();
+    expect(buildGraph).not.toHaveBeenCalled();
+
+    const placeholders = screen.getAllByText(
+      "Bitte wähle zuerst ein Rezept aus."
     );
-    expect(screen.getByText("Produktionsplan Ausgabe")).toBeInTheDocument(); // Assert
-    expect(screen.getByText("Produktionsgraph")).toBeInTheDocument();        // Assert
+    expect(placeholders).toHaveLength(2);
+
+    expect(screen.queryByTestId("planner-output")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("planner-graph")).not.toBeInTheDocument();
   });
 
-  it("ruft onRecipeChange auf wenn der Nutzer ein Rezept auswaehlt", () => {
-    const handleRecipeChange = vi.fn();                            // Arrange
+  it("berechnet Produktionsplan und Graph, sobald ein Rezept ausgewählt ist", () => {
+    const plan = {
+      rootProductId: "item-1",
+      targetAmountPerMinute: 10,
+      steps: [],
+    };
+    const graph = { nodes: [], edges: [] };
+
+    (calculateProductionPlan as any).mockReturnValue(plan);
+    (buildGraph as any).mockReturnValue(graph);
+
+    render(<Planner {...baseProps} selectedRecipe={mockRecipe} />);
+
+    expect(calculateProductionPlan).toHaveBeenCalledWith({
+      recipe: mockRecipe,
+      amountPerMinute: 10,
+      recipes: mockRecipes,
+      items: mockItems,
+      factories: mockFactories,
+    });
+    expect(buildGraph).toHaveBeenCalledWith(plan);
+
+    expect(screen.getByTestId("planner-output")).toHaveTextContent(
+      JSON.stringify(plan)
+    );
+    expect(screen.getByTestId("planner-graph")).toHaveTextContent(
+      JSON.stringify(graph)
+    );
+  });
+
+  it("zeigt weiterhin den Platzhalter im Graph-Bereich, wenn buildGraph undefined liefert, obwohl ein Plan existiert", () => {
+    const plan = {
+      rootProductId: "item-1",
+      targetAmountPerMinute: 10,
+      steps: [],
+    };
+    (calculateProductionPlan as any).mockReturnValue(plan);
+    (buildGraph as any).mockReturnValue(undefined);
+
+    render(<Planner {...baseProps} selectedRecipe={mockRecipe} />);
+
+    expect(screen.getByTestId("planner-output")).toBeInTheDocument();
+    expect(screen.queryByTestId("planner-graph")).not.toBeInTheDocument();
+    expect(
+      screen.getByText("Bitte wähle zuerst ein Rezept aus.")
+    ).toBeInTheDocument();
+  });
+
+  it("leitet Nutzerinteraktionen aus dem Recipe_selector an die übergebenen Callbacks weiter", async () => {
+    const user = userEvent.setup();
+    const onRecipeChange = vi.fn();
+    const onAmountChange = vi.fn();
+
     render(
       <Planner
-        recipes={recipes}
-        items={items}
-        factories={factories}
-        selectedRecipeId=""
-        amount={0}
+        {...baseProps}
         selectedRecipe={undefined}
-        onRecipeChange={handleRecipeChange}
-        onAmountChange={vi.fn()}
+        onRecipeChange={onRecipeChange}
+        onAmountChange={onAmountChange}
       />
     );
 
-    fireEvent.change(                                              // Act
-      screen.getByRole("combobox", { name: "Rezept" }),
-      { target: { value: "recipe-iron-plate" } }
-    );
+    await user.click(screen.getByText("change-recipe"));
+    await user.click(screen.getByText("change-amount"));
 
-    expect(handleRecipeChange).toHaveBeenCalledWith("recipe-iron-plate"); // Assert
+    expect(onRecipeChange).toHaveBeenCalledWith("recipe-2");
+    expect(onAmountChange).toHaveBeenCalledWith(42);
   });
 
+  it("memoisiert calculateProductionPlan und berechnet nur bei relevanten Prop-Änderungen neu", () => {
+    const plan = {
+      rootProductId: "item-1",
+      targetAmountPerMinute: 10,
+      steps: [],
+    };
+    (calculateProductionPlan as any).mockReturnValue(plan);
+    (buildGraph as any).mockReturnValue({ nodes: [], edges: [] });
+
+    const { rerender } = render(
+      <Planner {...baseProps} selectedRecipe={mockRecipe} />
+    );
+    expect(calculateProductionPlan).toHaveBeenCalledTimes(1);
+
+    // Identische Props -> useMemo greift, kein erneuter Aufruf
+    rerender(<Planner {...baseProps} selectedRecipe={mockRecipe} />);
+    expect(calculateProductionPlan).toHaveBeenCalledTimes(1);
+
+    // amount ändert sich -> Neuberechnung erwartet
+    rerender(<Planner {...baseProps} selectedRecipe={mockRecipe} amount={20} />);
+    expect(calculateProductionPlan).toHaveBeenCalledTimes(2);
+  });
+
+  it("setzt den React-key des Graphen aus rootProductId und targetAmountPerMinute zusammen (erzwingt Remount bei Änderung)", () => {
+    const planA = {
+      rootProductId: "item-1",
+      targetAmountPerMinute: 10,
+      steps: [],
+    };
+    const planB = {
+      rootProductId: "item-2",
+      targetAmountPerMinute: 20,
+      steps: [],
+    };
+    (calculateProductionPlan as any)
+      .mockReturnValueOnce(planA)
+      .mockReturnValueOnce(planB);
+    (buildGraph as any).mockReturnValue({ nodes: [], edges: [] });
+
+    const { rerender } = render(
+      <Planner {...baseProps} selectedRecipe={mockRecipe} />
+    );
+    expect(screen.getByTestId("planner-graph")).toBeInTheDocument();
+
+    rerender(<Planner {...baseProps} selectedRecipe={mockRecipe} amount={20} />);
+    expect(screen.getByTestId("planner-graph")).toBeInTheDocument();
+  });
 });

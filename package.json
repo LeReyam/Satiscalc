@@ -1,5 +1,12 @@
 {
   "devDependencies": {
-    "@testing-library/user-event": "^14.6.1"
+    "@testing-library/user-event": "^14.6.1",
+    "jsdom": "^29.1.1",
+    "vitest": "^4.1.10"
+  },
+  "scripts": {
+    "test": "vitest --environment jsdom",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
   }
 }
