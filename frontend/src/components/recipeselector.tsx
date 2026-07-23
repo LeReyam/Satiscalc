@@ -69,7 +69,7 @@ export default function Recipe_selector({
           </select>
         </main>
 
-        <div className="form-row">
+        <section className="form-row">
           <label htmlFor="number">Gebe die gewünschte Anzahl ein:</label>
 
           <p>
@@ -85,7 +85,7 @@ export default function Recipe_selector({
             />
             /min
           </p>
-        </div>
+        </section>
       </form>
     </section>
   );
