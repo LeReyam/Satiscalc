@@ -37,7 +37,7 @@ export default function Recipe_selector({
   return (
     <section className="recipe-selector">
       <form>
-        <div className="form-row">
+        <main className="form-row">
           <label htmlFor="rezept">Wähle das Rezept:</label>
 
           <select
@@ -67,7 +67,7 @@ export default function Recipe_selector({
                 </option>
               ))}
           </select>
-        </div>
+        </main>
 
         <div className="form-row">
           <label htmlFor="number">Gebe die gewünschte Anzahl ein:</label>
