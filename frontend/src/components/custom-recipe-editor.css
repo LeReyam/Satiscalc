@@ -97,7 +97,7 @@
   margin: 5px 0;
 }
 
-@media (max-width: 801px) {
+@media (max-width: 950px) {
   .custom_recipe_editor form {
     width: 100%;
     max-width: 320px;

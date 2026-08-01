@@ -49,8 +49,20 @@ function ProductionplannerGraphContent({
         maxZoom: 1,
       });
 
-      hasFittedView.current = true;
-      setIsReady(true);
+      // Nach dem Layoutwechsel nochmals neu berechnen
+      setTimeout(() => {
+        window.dispatchEvent(new Event("resize"));
+
+        fitView({
+          padding: 0.2,
+          duration: 0,
+          minZoom: 0.05,
+          maxZoom: 1,
+        });
+
+        hasFittedView.current = true;
+        setIsReady(true);
+      }, 100);
     });
   }, [graph, fitView, setFlowNodes, setFlowEdges]);
 

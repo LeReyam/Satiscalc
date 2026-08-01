@@ -160,9 +160,11 @@ function App() {
     return (
       <>
         <Header />
+        <hr className="divider" />
         <main>
           <p>Daten werden geladen...</p>
         </main>
+        <hr className="divider" />
         <Footer />
       </>
     );

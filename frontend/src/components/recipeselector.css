@@ -11,6 +11,16 @@
   height: 100%;
 }
 
+.amount-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.amount-input input {
+  width: 100px;
+}
+
 .form-row {
   display: flex;
   align-items: center;
@@ -27,4 +37,34 @@
   border-radius: 6px;
   border: 1px solid #555;
   background-color: var(--color-accent);
+}
+
+@media (max-width: 950px) {
+
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .form-row label {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .amount-input input {
+    width: 120px;
+    max-width: 100%;
+  }
+
+
+  .icon-select {
+    width: auto;
+  }
+
+  .icon-select-button {
+    min-width: 220px;
+    max-width: 280px;
+  }
+
 }

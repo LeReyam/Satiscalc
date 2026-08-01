@@ -59,7 +59,7 @@
   color: var(--color-accent);
 }
 
-@media (max-width: 801px) {
+@media (max-width: 950px) {
   .about {
     padding: 10px;
     min-height: 60vh;

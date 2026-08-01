@@ -9,14 +9,16 @@ main[title="planner"] section {
 }
 
 main[title="planner"] > section > button {
-  margin-bottom: 1rem;
-  padding: 0.7rem 1rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #fd9800;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
+    display: block;
+    margin: 0 auto 1rem auto;
+
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-accent);
+    color: var(--color-text-dark);
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .table-wrapper {
@@ -44,14 +46,35 @@ main[title="planner"] > section > button {
 .table-info th {
   background-color: #fd9800;
   color: black;
-  text-align: left;
   padding: 0.8rem;
+  border-bottom: none;
 }
 
+.table-info th,
 .table-info td {
   padding: 0.8rem;
-  border-top: 1px solid #615f5f;
-  vertical-align: top;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  vertical-align: center;
+  text-align: center;
+}
+
+.table-info th{
+  border-right: 2px solid black;
+}
+
+.table-info td{
+  border-right: 1px solid rgba(255, 255, 255, 0.918);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.918);
+}
+
+
+.table-info tbody tr:last-child td {
+  border-bottom: none;
+}
+.table-info td:last-child,
+.table-info th:last-child {
+  border-right: none;
 }
 
 .table-info p {
@@ -76,4 +99,31 @@ main[title="planner"] > section > button {
 .table-info button:hover,
 main[title="planner"] > section > button:hover {
   transform: scale(1.04);
+}
+
+@media (max-width: 950px) {
+
+  main[title="planner"] {
+    padding: 1rem;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-info {
+    min-width: 850px;
+  }
+
+  .table-info caption {
+    font-size: 1.15rem;
+  }
+
+  .table-info button {
+    display: block;
+    width: 100%;
+    margin: 0 0 0.4rem 0;
+  }
+
 }

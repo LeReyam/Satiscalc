@@ -7,7 +7,7 @@ h1 {
   display: flex;
   justify-content: center;
   color: var(--color-accent);
-  font-size: 60px;
+  font-size: 3.75rem;
 }
 
 header nav {
@@ -33,3 +33,23 @@ header nav button:hover {
   background-color: var(--color-accent-darker)
 }
 
+@media (max-width: 950px) {
+
+  h1 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  header nav button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+}

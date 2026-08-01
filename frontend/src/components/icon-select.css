@@ -1,44 +1,25 @@
-.icon-select-menu {
-    border-radius: 8px;
-    overflow: hidden;      /* schneidet die Ecken ab */
-    background: #111827;
-}
-
-.icon-select-scroll {
-    max-height: 300px;
-    overflow-y: auto;
-}
-
 .icon-select {
-  position: relative;
-  overflow: visible;
-}
-
-.icon-select-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 9999;
-  overflow: hidden;
-}
-
-
-.icon-select {
-  position: relative;
-  width: auto;
+    position: relative;
+    width: auto;
+    display: inline-block;
 }
 
 .icon-select-button {
   width: 100%;
   padding: 6px 10px;
-  border-radius: 6px;
   border: 1px solid #555;
+  border-radius: 6px;
   background-color: var(--color-accent);
   color: var(--color-text-dark);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .icon-select-content,
@@ -56,27 +37,50 @@
 
 .icon-select-menu {
   position: absolute;
-  z-index: 50;
-  width: 100%;
-  max-height: 300px;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 9999;
+
+  min-width: 350px;
+  width: max-content;
+  max-width: min(500px, 90vw);
+
   overflow-y: auto;
-  margin-top: 4px;
+  overflow-x: hidden;
+
   border: 1px solid #555;
-  border-radius: 6px;
+  border-radius: 8px;
+
   background: var(--color-bg);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.icon-select-scroll {
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .icon-select-option {
   width: 100%;
   padding: 8px 10px;
   border: none;
+
   background: transparent;
   color: var(--color-text);
+
   text-align: left;
   cursor: pointer;
 }
 
 .icon-select-option:hover {
   background: var(--color-card);
+}
+
+@media (max-width: 950px) {
+
+  .icon-select-menu {
+     min-width: 320px;
+    width: max-content;
+    max-width: 500px;
+  }
 }
