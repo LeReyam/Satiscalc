@@ -1,4 +1,4 @@
-# Projektname: Productionplaner
+# Projektname: SatisCalc - Productionsplaner
 **Team:** Leon Mayer (312056), Nicholas Plötz (307930), Florian Dunstheimer (307133)
 **Repository:** https://github.com/LeReyam/Satiscalc
 # Installation
