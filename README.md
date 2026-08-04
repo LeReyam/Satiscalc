@@ -39,6 +39,7 @@ cd SatisCalc
 ## Backend einrichten
 
 In das Backend-Verzeichnis wechseln und die benötigten Abhängigkeiten installieren:
+**Hinweis**: Das Repository enthält bereits eine vorkonfigurierte SQLite-Datenbank. In den meisten Fällen ist die Datenbank bereits vorhanden und die folgenden Befehle dienen lediglich zur Überprüfung.
 
 ```bash
 cd backend
@@ -75,7 +76,7 @@ Falls keine Datenbank vorhanden ist:
 npx prisma migrate dev
 npm run db:seed
 ```
-
+Hier gehts weiter wenn die Datenbank da ist.
 Zum Schluss das Backend starten:
 
 ```bash
