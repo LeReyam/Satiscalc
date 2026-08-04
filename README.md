@@ -17,7 +17,13 @@ Vor der Installation müssen folgende Programme installiert sein:
 node -v
 npm -v
 git --version
+
 ```
+| Programm | Erwartete Version |
+|----------|-------------------|
+| Node.js | **v22.18.0** oder neuer |
+| npm | **10.9.3** oder neuer |
+| Git | **2.50.1.windows.1** oder neuer |
 
 ---
 
