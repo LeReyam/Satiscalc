@@ -1,6 +1,121 @@
 # Projektname: Productionplaner
 **Team:** Leon Mayer (312056), Nicholas Plötz (307930), Florian Dunstheimer (307133)
 **Repository:** https://github.com/LeReyam/Satiscalc
+# Installation
+
+## Voraussetzungen
+
+Vor der Installation müssen folgende Programme installiert sein:
+
+- Node.js (Version 20 oder neuer)
+- npm
+- Git
+
+Überprüfen der Installation:
+
+```bash
+node -v
+npm -v
+git --version
+```
+
+---
+
+## Repository klonen
+
+```bash
+git clone https://github.com/LeReyam/Satiscalc.git
+cd SatisCalc
+```
+
+---
+
+## Backend einrichten
+
+```bash
+cd backend
+npm install
+```
+
+Prisma Client generieren:
+
+```bash
+npx prisma generate
+```
+
+Falls noch keine Datenbank existiert:
+
+```bash
+npx prisma migrate dev
+```
+
+Backend starten:
+
+```bash
+npm run dev
+```
+
+Das Backend läuft anschließend unter:
+
+```
+http://localhost:3000
+```
+
+---
+
+## Frontend einrichten
+
+Neues Terminal öffnen.
+
+```bash
+cd frontend
+npm install
+```
+
+Frontend starten:
+
+```bash
+npm run dev
+```
+
+Die Anwendung ist anschließend erreichbar unter:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Anmeldung
+
+Registriere zunächst einen neuen Benutzer über die Registrierungsseite.
+
+Alternativ kann folgender Testnutzer verwendet werden:
+
+Benutzername:
+```
+test
+```
+
+Passwort:
+```
+test123
+```
+
+(Anpassen, falls ihr keinen Testnutzer mitliefert.)
+
+---
+
+## Projekt beenden
+
+Frontend und Backend können mit
+
+```bash
+CTRL + C
+```
+
+beendet werden.
+
 ## Projektidee
 Ein Tool zur Generierung von einem Flowchart für Produktionsketten. Eigene Rezepte können hinzugefügt werden.
 ## Kriterien-Zuordnung M1
