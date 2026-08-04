@@ -51,20 +51,28 @@ Den Prisma Client generieren:
 npx prisma generate
 ```
 
-### Prüfen, ob bereits eine Datenbank vorhanden ist
+#### PowerShell (Windows)
 
-Im Ordner `backend/prisma` sollte sich eine Datei `dev.db` befinden.
+```powershell
+Test-Path .\prisma\dev.db
+```
 
-- **Falls die Datei vorhanden ist**, kann dieser Schritt übersprungen werden.
-- **Falls keine Datenbank vorhanden ist**, muss sie mit Prisma erstellt werden:
+- Ausgabe `True` → Die Datenbank ist bereits vorhanden. Den Schritt `npx prisma migrate dev` überspringen.
+- Ausgabe `False` → Die Datenbank muss erstellt werden.
+
+#### Bash (Linux, macOS, Git Bash)
+
+```bash
+[ -f prisma/dev.db ] && echo "✓ Datenbank vorhanden." || echo "✗ Keine Datenbank gefunden."
+```
+
+- Ausgabe `✓ Datenbank vorhanden.` → Die Datenbank ist bereits vorhanden. Den Schritt `npx prisma migrate dev` überspringen.
+- Ausgabe `✗ Keine Datenbank gefunden.` → Die Datenbank muss erstellt werden.
+
+Falls keine Datenbank vorhanden ist:
 
 ```bash
 npx prisma migrate dev
-```
-
-Anschließend das Seed-Skript ausführen, um die Standarddaten in die Datenbank zu laden:
-
-```bash
 npm run db:seed
 ```
 
