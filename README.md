@@ -39,12 +39,12 @@ cd SatisCalc
 ## Backend einrichten
 
 In das Backend-Verzeichnis wechseln und die benötigten Abhängigkeiten installieren:
-**Hinweis**: Das Repository enthält bereits eine vorkonfigurierte SQLite-Datenbank. In den meisten Fällen ist die Datenbank bereits vorhanden und die folgenden Befehle dienen lediglich zur Überprüfung.
 
 ```bash
 cd backend
 npm install
 ```
+**Hinweis**: Das Repository enthält bereits eine vorkonfigurierte SQLite-Datenbank. In den meisten Fällen ist die Datenbank bereits vorhanden und die folgenden Befehle dienen lediglich zur Überprüfung.
 
 Den Prisma Client generieren:
 
