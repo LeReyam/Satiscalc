@@ -154,8 +154,21 @@ CTRL + C
 
 beendet werden.
 
-## Projektidee
+# Projektidee
 Ein Tool zur Generierung von einem Flowchart für Produktionsketten. Eigene Rezepte können hinzugefügt werden.
+
+# Projektbeschreibung
+
+SatisCalc ist eine Full-Stack-Webanwendung zur Planung und Berechnung von Produktionsketten für das Spiel **Satisfactory**.
+
+Die Anwendung unterstützt Spieler dabei, den Materialbedarf sowie die benötigten Produktionsgebäude für ein gewünschtes Endprodukt zu berechnen. Grundlage hierfür bilden die im Spiel vorhandenen Standardrezepte, welche automatisch in die Berechnung einbezogen werden.
+
+Neben den Standardrezepten können Benutzer eigene Rezepte erstellen, bearbeiten und löschen. Diese werden benutzerbezogen in einer SQLite-Datenbank gespeichert und stehen nach einer erneuten Anmeldung weiterhin zur Verfügung.
+
+Zur Benutzerverwaltung verfügt die Anwendung über eine Registrierung und einen Login mittels JSON Web Token (JWT). Dadurch sind benutzerdefinierte Rezepte nur für den jeweiligen Benutzer sichtbar und können vor unbefugtem Zugriff geschützt werden.
+
+Die Anwendung wurde im Rahmen der Vorlesung **Web-Applikationen** an der HTWG Konstanz entwickelt.
+
 ## Kriterien-Zuordnung M1
 | Kriterium | Datei | Zeile / Hinweis |
 |---|---|---|
@@ -218,6 +231,15 @@ passwort: 123456
 | SSR/SSG-Begründung                       | README.md                                                         | Ein Satz unter Architektur ergänzen              |
 | Tests                                    | about.test.tsx, planner.test.tsx                                  | Z.14-44, Z.70-126								  |
 
+# Architekturübersicht
+
+Die Anwendung besteht aus einem React-Frontend und einem Express-Backend.
+
+Das Frontend übernimmt die Darstellung der Benutzeroberfläche sowie die Interaktion mit dem Benutzer. Über eine REST-API werden Anfragen an das Backend gesendet.
+
+Das Backend verarbeitet diese Anfragen, führt Authentifizierung und Autorisierung durch und greift mithilfe von Prisma ORM auf die SQLite-Datenbank zu.
+
+Die Datenbank speichert Benutzerkonten sowie benutzerdefinierte Rezepte dauerhaft.
 
                   Browser
                      │
