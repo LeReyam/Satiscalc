@@ -38,34 +38,49 @@ cd SatisCalc
 
 ## Backend einrichten
 
+In das Backend-Verzeichnis wechseln und die benötigten Abhängigkeiten installieren:
+
 ```bash
 cd backend
 npm install
 ```
 
-Prisma Client generieren:
+Den Prisma Client generieren:
 
 ```bash
 npx prisma generate
 ```
 
-Falls noch keine Datenbank existiert:
+### Prüfen, ob bereits eine Datenbank vorhanden ist
+
+Im Ordner `backend/prisma` sollte sich eine Datei `dev.db` befinden.
+
+- **Falls die Datei vorhanden ist**, kann dieser Schritt übersprungen werden.
+- **Falls keine Datenbank vorhanden ist**, muss sie mit Prisma erstellt werden:
 
 ```bash
 npx prisma migrate dev
 ```
 
-Backend starten:
+Anschließend das Seed-Skript ausführen, um die Standarddaten in die Datenbank zu laden:
+
+```bash
+npm run db:seed
+```
+
+Zum Schluss das Backend starten:
 
 ```bash
 npm run dev
 ```
 
-Das Backend läuft anschließend unter:
+Das Backend ist anschließend unter
 
 ```
 http://localhost:3000
 ```
+
+erreichbar.
 
 ---
 
