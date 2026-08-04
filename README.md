@@ -77,7 +77,7 @@ Falls keine Datenbank vorhanden ist:
 npx prisma migrate dev
 npm run db:seed
 ```
-Hier gehts weiter wenn die Datenbank da ist.
+***Hier gehts weiter wenn die Datenbank da ist.***
 Zum Schluss das Backend starten:
 
 ```bash
