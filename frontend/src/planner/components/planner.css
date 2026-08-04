@@ -1,10 +1,3 @@
-#planner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 7px); /* oder Navbar-Höhe abziehen */
-}
-
 .planner-layout {
   flex: 1;
   min-height: 0;
@@ -12,7 +5,9 @@
   display: grid;
   grid-template-columns: 75% 25%;
   grid-template-rows: auto 1fr;
-
+  grid-template-areas:
+    "selector output"
+    "graph    output";
 
   gap: 16px;
   padding-top: 16px;
@@ -20,57 +15,32 @@
   box-sizing: border-box;
 }
 
-.planner-card {
-  background: var(--color-card);
-  border: 2px solid var(--color-accent);
-  border-radius: 12px;
-  padding: 16px;
-  box-sizing: border-box;
+.planner-selector { grid-area: selector; }
+.planner-output   { grid-area: output; }
+.planner-graph    { grid-area: graph; }
 
-  min-width: 0;
-  min-height: 0;
-  overflow: hidden;
-}
+/* NEU: Mobile Layout */
+@media (max-width: 801px) {
+  #planner {
+    min-height: auto;      /* nicht mehr zentriert-fixiert */
+    align-items: stretch;
+  }
 
-.planner-selector {
-  grid-column: 1;
-  grid-row: 1;
-}
+  .planner-layout {
+    grid-template-columns: 1fr;      /* eine Spalte */
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "selector"
+      "output"
+      "graph";
+    padding-right: 16px;             /* symmetrisch statt nur rechts */
+  }
 
-.planner-output {
-  grid-column: 2;
-  grid-row: 1 / 3;
-  overflow-y: auto;
-  color: var(--color-accent);
-  overflow-y: auto;
-  overflow-x: hidden;
+  .planner-output {
+    max-height: 60vh;   /* sonst kann overflow:auto endlos werden */
+  }
 
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.28) transparent;
-}
-
-.planner-graph {
-  grid-column: 1;
-  grid-row: 2;
-  color: var(--color-accent);
-}
-
-.planner-output::-webkit-scrollbar {
-  width: 10px;
-}
-
-.planner-output::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.planner-output::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.25);
-  border: 2px solid transparent;
-  background-clip: content-box;
-}
-
-.planner-output::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.42);
-  background-clip: content-box;
+  .planner-graph {
+    min-height: 300px;  /* React Flow braucht explizite Höhe, sonst 0px */
+  }
 }

@@ -35,7 +35,7 @@ export default function Recipe_selector({
   }
 
   return (
-    <section className="recipe-selector">
+    <article className="recipe-selector">
       <form>
         <main className="form-row">
           <label htmlFor="rezept">Wähle das Rezept:</label>
@@ -87,6 +87,6 @@ export default function Recipe_selector({
           </p>
         </section>
       </form>
-    </section>
+    </article>
   );
 }

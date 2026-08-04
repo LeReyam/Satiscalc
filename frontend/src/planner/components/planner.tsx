@@ -62,13 +62,13 @@ export default function Planner({
         />
       </section>
 
-      <section className="planner-output planner-card">
+      <article className="planner-output planner-card">
         {productionPlan ? (
           <Productionplanner_output plan={productionPlan} />
         ) : (
           <p>Bitte wähle zuerst ein Rezept aus.</p>
         )}
-      </section>
+      </article>
 
       <section className="planner-graph planner-card">
         {productionPlan && graph ? (
