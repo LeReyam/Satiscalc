@@ -15,4 +15,7 @@ export default defineConfig({
       "/icons": "http://localhost:3000",
     },
   },
+  build: {
+    chunkSizeWarningLimit: 700,
+  },
 });

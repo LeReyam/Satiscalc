@@ -36,58 +36,58 @@ export default function Recipe_selector({
   }
 
   return (
-    <section className="recipe-selector">
+    <article className="recipe-selector">
       <form>
-        <div className="form-row">
-          <label>Wähle das Rezept:
-            <p />
-            <IconSelect
-              value={selectedRecipeId}
-              placeholder="Rezept auswählen"
-              onChange={onRecipeChange}
-              options={[...recipes]
-                .filter((recipe) => recipe.name !== "N/A")
-                .filter((recipe) => recipe.ingredients.length > 0)
-                .filter((recipe) => recipe.products.length > 0)
-                .filter((recipe) => recipe.producedIn.length > 0)
-                .filter((recipe) => !recipe.inBuildGun)
-                .filter((recipe) => !recipe.alternate)
-                .sort((a, b) =>
-                  getRecipeDisplayName(a).localeCompare(getRecipeDisplayName(b), "de")
+        <main className="form-row">
+          <label htmlFor="rezept">Wähle das Rezept:</label>
+
+          <select
+            name="rezept"
+            id="rezept"
+            value={selectedRecipeId}
+            onChange={(event) => onRecipeChange(event.target.value)}
+          >
+            <option value="">Rezept auswählen</option>
+
+            {[...recipes]
+              .filter((recipe) => recipe.name !== "N/A")
+              .filter((recipe) => recipe.ingredients.length > 0)
+              .filter((recipe) => recipe.products.length > 0)
+              .filter((recipe) => recipe.producedIn.length > 0)
+              .filter((recipe) => !recipe.inBuildGun)
+              .filter((recipe) => !recipe.alternate)
+              .sort((a, b) =>
+                getRecipeDisplayName(a).localeCompare(
+                  getRecipeDisplayName(b),
+                  "de"
                 )
-                .map((recipe) => {
-                  const firstProduct = recipe.products[0];
-                  const item = items.find((item) => item.id === firstProduct?.item);
+              )
+              .map((recipe) => (
+                <option key={recipe.className} value={recipe.className}>
+                  {getRecipeDisplayName(recipe)}
+                </option>
+              ))}
+          </select>
+        </main>
 
-                  return {
-                    value: recipe.className,
-                    label: getRecipeDisplayName(recipe),
-                    iconPath: item?.iconPath,
-                  };
-                })}
+        <section className="form-row">
+          <label htmlFor="number">Gebe die gewünschte Anzahl ein:</label>
+
+          <p>
+            <input
+              type="number"
+              value={amount}
+              min="1"
+              max="1000000"
+              id="number"
+              onChange={(event) =>
+                onAmountChange(Number(event.target.value))
+              }
             />
-          </label>
-        </div>
-
-        <div className="form-row">
-          <label htmlFor="number">Gebe die gewünschte Anzahl ein:
-            <p />
-            <div className="amount-input">
-              <input
-                type="number"
-                value={amount}
-                min="1"
-                max="1000000"
-                id="number"
-                onChange={(event) =>
-                  onAmountChange(Number(event.target.value))
-                }
-              />
-              <span>/min</span>
-            </div>
-          </label>
-        </div>
+            /min
+          </p>
+        </section>
       </form>
-    </section>
+    </article>
   );
 }

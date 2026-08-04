@@ -15,21 +15,21 @@ export function buildGraph(plan: ProductionPlan): PlannerGraph {
       sourcePosition: Position.Right,
       data: {
         label: (
-          <div>
+          <figure>
             <strong>{node.itemName}</strong>
-            <div>{node.amountPerMinute.toFixed(2)} / min</div>
+            <section>{node.amountPerMinute.toFixed(2)} / min</section>
 
-            {node.recipeName && <div>Rezept: {node.recipeName}</div>}
-            {node.factoryName && <div>Fabrik: {node.factoryName}</div>}
+            {node.recipeName && <aside>Rezept: {node.recipeName}</aside>}
+            {node.factoryName && <aside>Fabrik: {node.factoryName}</aside>}
 
             {node.machines !== undefined && (
-              <div>Maschinen: {node.machines.toFixed(2)}</div>
+              <figcaption>Maschinen: {node.machines.toFixed(2)}</figcaption>
             )}
 
-            {node.stopReason === "base-resource" && <div>Basis-Ressource</div>}
-            {node.stopReason === "cycle" && <div>Zyklus erkannt</div>}
-            {node.stopReason === "missing-recipe" && <div>Kein Rezept gefunden</div>}
-          </div>
+            {node.stopReason === "base-resource" && <figcaption>Basis-Ressource</figcaption>}
+            {node.stopReason === "cycle" && <figcaption>Zyklus erkannt</figcaption>}
+            {node.stopReason === "missing-recipe" && <figcaption>Kein Rezept gefunden</figcaption>}
+          </figure>
         ),
       },
     });

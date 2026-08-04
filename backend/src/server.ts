@@ -2,10 +2,18 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import bcrypt from "bcrypt";
 import { prisma } from "./lib/prisma.js";
 import { authRouter } from "./routes/auth.js";
 import { optionalAuth, requireAuth, type AuthRequest } from "./auth.js";
+
+// __dirname gibt es in ESM-Modulen nicht automatisch -> selbst herleiten
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Pfad zum gebauten Frontend (frontend/dist), relativ zu backend/src bzw. backend/dist
+const frontendDistPath = path.join(__dirname, "..", "..", "frontend", "dist");
 
 const app = express();
 
@@ -125,6 +133,21 @@ app.get("/api/factories", async (_req, res) => {
   res.json(factories);
 });
 
-app.listen(3000, () => {
-  console.log("API läuft auf Port 3000");
+app.use(express.static(frontendDistPath));
+
+// --- NEU: Catch-all für React-Router (Client-Side-Routing) ---
+// Muss NACH allen /api- und /icons-Routen stehen, damit z.B. /recipes/new
+// beim direkten Aufruf im Browser trotzdem die index.html ausliefert
+// und React Router client-seitig übernimmt.
+app.get(/^\/(?!api|icons).*/, (_req, res) => {
+  res.sendFile(path.join(frontendDistPath, "index.html"));
+});
+
+const PORT = 3000;
+
+app.listen(PORT, () => {
+  console.log("");
+  console.log(`  ➜  Server:  http://localhost:${PORT}`);
+  console.log(`  ➜  API:     http://localhost:${PORT}/api`);
+  console.log("");
 });

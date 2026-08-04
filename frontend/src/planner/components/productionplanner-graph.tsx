@@ -88,10 +88,10 @@ export default function Productionplanner_graph({
   graph,
 }: ProductionPlannerGraphProps) {
   return (
-    <div className="production-graph">
+    <article className="production-graph">
       <ReactFlowProvider>
         <ProductionplannerGraphContent graph={graph} />
       </ReactFlowProvider>
-    </div>
+    </article>
   );
 }
