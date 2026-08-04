@@ -106,8 +106,7 @@ Neues Terminal öffnen.
 
 
 ```bash
-cd SatisCalc
-cd frontend
+cd SatisCalc/frontend
 npm install
 ```
 
