@@ -23,7 +23,7 @@ git --version
 |----------|-------------------|
 | Node.js | **v22.18.0** oder neuer |
 | npm | **10.9.3** oder neuer |
-| Git | **2.50.1.windows.1** oder neuer |
+| Git | **2.50.** oder neuer |
 
 ---
 
