@@ -132,15 +132,15 @@ Alternativ kann folgender Testnutzer verwendet werden:
 
 Benutzername:
 ```
-test
+test@test.de
 ```
 
 Passwort:
 ```
-test123
+123456
 ```
 
-(Anpassen, falls ihr keinen Testnutzer mitliefert.)
+(Mehr dazu kommt weiter unten)
 
 ---
 
