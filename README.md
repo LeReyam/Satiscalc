@@ -96,12 +96,14 @@ erreichbar.
 
 ## Frontend einrichten
 
+Neues Terminal öffnen.
+
 ### Hinweis zur Installation der Packages beim Frontend
 
 - Die Anwendung wurde mit den zum Entwicklungszeitpunkt aktuellen Versionen aller verwendeten Bibliotheken entwickelt und getestet.
 - `npm audit` meldet derzeit zwei Sicherheitswarnung eine für `react-router-dom` (Version 7.18.2). Die gemeldete Schwachstelle betrifft laut Hersteller ausschließlich den React Server Components (RSC)-Modus, welcher in dieser Anwendung nicht verwendet wird. Die andere ist für `react-router`, eine Löst die andere aus.
 - Da zum Zeitpunkt der Abgabe kein neueres Release von `react-router-dom` über npm verfügbar war, konnte die Warnung nicht durch ein Update behoben werden. Die Funktionalität der Anwendung wird dadurch nicht beeinträchtigt.
-Neues Terminal öffnen.
+
 
 ```bash
 cd frontend
