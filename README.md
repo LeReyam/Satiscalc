@@ -44,13 +44,14 @@ In das Backend-Verzeichnis wechseln und die benötigten Abhängigkeiten installi
 cd backend
 npm install
 ```
-**Hinweis**: Das Repository enthält bereits eine vorkonfigurierte SQLite-Datenbank. In den meisten Fällen ist die Datenbank bereits vorhanden und die folgenden Befehle dienen lediglich zur Überprüfung.
 
 Den Prisma Client generieren:
 
 ```bash
 npx prisma generate
 ```
+
+**Hinweis**: Das Repository enthält bereits eine vorkonfigurierte SQLite-Datenbank. In den meisten Fällen ist die Datenbank bereits vorhanden und die folgenden Befehle dienen lediglich zur Überprüfung.
 
 #### PowerShell (Windows)
 
