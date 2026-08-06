@@ -41,7 +41,6 @@ Download und Installation:
 
 https://git-scm.com/downloads
 
----
 
 #### Ubuntu / Debian
 
@@ -50,7 +49,6 @@ sudo apt update
 sudo apt install -y nodejs npm git
 ```
 
----
 
 #### macOS (Homebrew)
 
@@ -58,7 +56,6 @@ sudo apt install -y nodejs npm git
 brew install node git
 ```
 
----
 
 Nach der Installation können die Versionen erneut überprüft werden:
 
