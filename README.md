@@ -81,6 +81,7 @@ npm run db:seed
 Zum Schluss das Backend starten:
 
 ```bash
+npm run build
 npm run dev
 ```
 
@@ -113,6 +114,7 @@ npm install
 Frontend starten:
 
 ```bash
+npm run build
 npm run dev
 ```
 
@@ -121,6 +123,10 @@ Die Anwendung ist anschließend erreichbar unter:
 ```
 http://localhost:5173
 ```
+
+---
+
+
 
 ---
 
