@@ -239,7 +239,7 @@ Das Frontend übernimmt die Darstellung der Benutzeroberfläche sowie die Intera
 
 Das Backend verarbeitet diese Anfragen, führt Authentifizierung und Autorisierung durch und greift mithilfe von Prisma ORM auf die SQLite-Datenbank zu.
 
-Die Datenbank speichert Benutzerkonten sowie benutzerdefinierte Rezepte dauerhaft. 
+Die Datenbank speichert Benutzerkonten sowie benutzerdefinierte Rezepte dauerhaft.
 
                   Browser
                      │
