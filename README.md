@@ -25,6 +25,48 @@ git --version
 | npm | **10.9.3** oder neuer |
 | Git | **2.50.** oder neuer |
 
+### Installation der Voraussetzungen
+
+#### Windows
+
+##### Node.js und npm
+
+Node.js enthält npm bereits. Download und Installation:
+
+https://nodejs.org/
+
+##### Git
+
+Download und Installation:
+
+https://git-scm.com/downloads
+
+---
+
+#### Ubuntu / Debian
+
+```bash
+sudo apt update
+sudo apt install -y nodejs npm git
+```
+
+---
+
+#### macOS (Homebrew)
+
+```bash
+brew install node git
+```
+
+---
+
+Nach der Installation können die Versionen erneut überprüft werden:
+
+```bash
+node -v
+npm -v
+git --version
+```
 ---
 
 ## Repository klonen
