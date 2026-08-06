@@ -1,5 +1,5 @@
 import "./recipeselector.css";
-//import IconSelect from "./icon-select";
+import IconSelect from "./icon-select";
 import type { Item, Recipe } from "../types";
 
 type RecipeSelectorProps = {
@@ -39,35 +39,41 @@ export default function Recipe_selector({
     <article className="recipe-selector">
       <form>
         <main className="form-row">
-          <label htmlFor="rezept">Wähle das Rezept:</label>
+          <label>
+              Wähle das Rezept:
 
-          <select
-            name="rezept"
-            id="rezept"
-            value={selectedRecipeId}
-            onChange={(event) => onRecipeChange(event.target.value)}
-          >
-            <option value="">Rezept auswählen</option>
+              <IconSelect
+                  value={selectedRecipeId}
+                  placeholder="Rezept auswählen"
+                  onChange={onRecipeChange}
+                  options={[...recipes]
+                      .filter((recipe) => recipe.name !== "N/A")
+                      .filter((recipe) => recipe.ingredients.length > 0)
+                      .filter((recipe) => recipe.products.length > 0)
+                      .filter((recipe) => recipe.producedIn.length > 0)
+                      .filter((recipe) => !recipe.inBuildGun)
+                      .filter((recipe) => !recipe.alternate)
+                      .sort((a, b) =>
+                          getRecipeDisplayName(a).localeCompare(
+                              getRecipeDisplayName(b),
+                              "de"
+                          )
+                      )
+                      .map((recipe) => {
+                          const firstProduct = recipe.products[0];
 
-            {[...recipes]
-              .filter((recipe) => recipe.name !== "N/A")
-              .filter((recipe) => recipe.ingredients.length > 0)
-              .filter((recipe) => recipe.products.length > 0)
-              .filter((recipe) => recipe.producedIn.length > 0)
-              .filter((recipe) => !recipe.inBuildGun)
-              .filter((recipe) => !recipe.alternate)
-              .sort((a, b) =>
-                getRecipeDisplayName(a).localeCompare(
-                  getRecipeDisplayName(b),
-                  "de"
-                )
-              )
-              .map((recipe) => (
-                <option key={recipe.className} value={recipe.className}>
-                  {getRecipeDisplayName(recipe)}
-                </option>
-              ))}
-          </select>
+                          const item = items.find(
+                              (item) => item.id === firstProduct?.item
+                          );
+
+                          return {
+                              value: recipe.className,
+                              label: getRecipeDisplayName(recipe),
+                              iconPath: item?.iconPath,
+                          };
+                      })}
+              />
+          </label>
         </main>
 
         <section className="form-row">
