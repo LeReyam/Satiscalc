@@ -1,5 +1,5 @@
 import "./recipeselector.css";
-import IconSelect from "./icon-select";
+//import IconSelect from "./icon-select";
 import type { Item, Recipe } from "../types";
 
 type RecipeSelectorProps = {

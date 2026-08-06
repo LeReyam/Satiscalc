@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, { type UserEvent } from "@testing-library/user-event";
 import Custom_recipe_editor from "./custom-recipe-editor";
 import type { Recipe, Item, Factory } from "../types";
 
@@ -25,6 +25,21 @@ const mockRecipe: Recipe = {
     customRecipe: true,
     inBuildGun: false,
 };
+
+/**
+ * The Eingabe/Ausgabe/Fabrik fields are rendered by the custom `IconSelect`
+ * component (a button that opens a menu of buttons), not a native <select>.
+ * This helper opens the dropdown identified by its trigger button's
+ * accessible name and clicks the option with the given label.
+ */
+async function selectIconOption(
+    user: UserEvent,
+    triggerName: RegExp,
+    optionLabel: string
+) {
+    await user.click(screen.getByRole("button", { name: triggerName }));
+    await user.click(await screen.findByRole("button", { name: optionLabel }));
+}
 
 describe("Custom Recipe Editor", () => {
     it("renders form for creating new recipe", () => {
@@ -117,9 +132,9 @@ describe("Custom Recipe Editor", () => {
         );
 
         await user.type(screen.getByPlaceholderText("Mein Rezept"), "Test Recipe");
-        await user.selectOptions(screen.getAllByRole("combobox")[0], "iron_ore");
-        await user.selectOptions(screen.getAllByRole("combobox")[1], "iron_plate");
-        await user.selectOptions(screen.getAllByRole("combobox")[2], "smelter");
+        await selectIconOption(user, /Eingabe wählen/, "Iron Ore");
+        await selectIconOption(user, /Ausgabe wählen/, "Iron Plate");
+        await selectIconOption(user, /Fabrik wählen/, "Smelter");
 
         const submitButton = screen.getByRole("button", { name: /Rezept erstellen/ });
         await user.click(submitButton);
@@ -167,9 +182,9 @@ describe("Custom Recipe Editor", () => {
             />
         );
 
-        await user.selectOptions(screen.getAllByRole("combobox")[1], "iron_plate");
-        await user.selectOptions(screen.getAllByRole("combobox")[0], "iron_ore");
-        await user.selectOptions(screen.getAllByRole("combobox")[2], "smelter");
+        await selectIconOption(user, /Ausgabe wählen/, "Iron Plate");
+        await selectIconOption(user, /Eingabe wählen/, "Iron Ore");
+        await selectIconOption(user, /Fabrik wählen/, "Smelter");
 
         await user.click(screen.getByRole("button", { name: /Rezept erstellen/ }));
 
@@ -200,9 +215,9 @@ describe("Custom Recipe Editor", () => {
         await user.clear(inputs[1]);
         await user.type(inputs[1], "10");
 
-        await user.selectOptions(screen.getAllByRole("combobox")[0], "iron_ore");
-        await user.selectOptions(screen.getAllByRole("combobox")[1], "iron_plate");
-        await user.selectOptions(screen.getAllByRole("combobox")[2], "smelter");
+        await selectIconOption(user, /Eingabe wählen/, "Iron Ore");
+        await selectIconOption(user, /Ausgabe wählen/, "Iron Plate");
+        await selectIconOption(user, /Fabrik wählen/, "Smelter");
 
         await user.click(screen.getByRole("button", { name: /Rezept erstellen/ }));
 
